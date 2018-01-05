@@ -1,0 +1,859 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1683E8F41FFF159C00D97BE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E8F31FFF159C00D97BE9 /* AppDelegate.m */; };
+		1683E8FC1FFF159C00D97BE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1683E8FB1FFF159C00D97BE9 /* Assets.xcassets */; };
+		1683E8FF1FFF159C00D97BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1683E8FD1FFF159C00D97BE9 /* LaunchScreen.storyboard */; };
+		1683E9021FFF159C00D97BE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9011FFF159C00D97BE9 /* main.m */; };
+		1683E90C1FFF159C00D97BE9 /* KRProductTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E90B1FFF159C00D97BE9 /* KRProductTests.m */; };
+		1683E9171FFF159C00D97BE9 /* KRProductUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9161FFF159C00D97BE9 /* KRProductUITests.m */; };
+		1683E9351FFF1C7300D97BE9 /* KRProductController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9341FFF1C7300D97BE9 /* KRProductController.m */; };
+		1683E9381FFF1CCA00D97BE9 /* KRStoreHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9371FFF1CCA00D97BE9 /* KRStoreHomeController.m */; };
+		1683E93F1FFF1D6400D97BE9 /* KRStoreListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E93E1FFF1D6400D97BE9 /* KRStoreListController.m */; };
+		1683E9441FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9411FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m */; };
+		1683E9451FFF1FE000D97BE9 /* KRProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9431FFF1FE000D97BE9 /* KRProductDetailView.m */; };
+		1683E9491FFF845500D97BE9 /* KRGoodsAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9481FFF845400D97BE9 /* KRGoodsAttributeCell.m */; };
+		1683E95C1FFF891300D97BE9 /* TYTabPagerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E94D1FFF891300D97BE9 /* TYTabPagerBar.m */; };
+		1683E95D1FFF891300D97BE9 /* TYTabPagerBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E94F1FFF891300D97BE9 /* TYTabPagerBarCell.m */; };
+		1683E95E1FFF891300D97BE9 /* TYTabPagerBarLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9511FFF891300D97BE9 /* TYTabPagerBarLayout.m */; };
+		1683E95F1FFF891300D97BE9 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9531FFF891300D97BE9 /* TYTabPagerController.m */; };
+		1683E9601FFF891300D97BE9 /* TYTabPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9551FFF891300D97BE9 /* TYTabPagerView.m */; };
+		1683E9611FFF891300D97BE9 /* TYPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9571FFF891300D97BE9 /* TYPagerController.m */; };
+		1683E9621FFF891300D97BE9 /* TYPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9591FFF891300D97BE9 /* TYPagerView.m */; };
+		1683E9631FFF891300D97BE9 /* TYPagerViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E95B1FFF891300D97BE9 /* TYPagerViewLayout.m */; };
+		B3682C1EE3ECEA9C830000ED /* libPods-KRProduct.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E3D854F5E32670F6E44CED /* libPods-KRProduct.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1683E9081FFF159C00D97BE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1683E8E71FFF159B00D97BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1683E8EE1FFF159C00D97BE9;
+			remoteInfo = KRProduct;
+		};
+		1683E9131FFF159C00D97BE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1683E8E71FFF159B00D97BE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1683E8EE1FFF159C00D97BE9;
+			remoteInfo = KRProduct;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1683E8EF1FFF159C00D97BE9 /* KRProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1683E8F21FFF159C00D97BE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1683E8F31FFF159C00D97BE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		1683E8FB1FFF159C00D97BE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1683E8FE1FFF159C00D97BE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1683E9001FFF159C00D97BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1683E9011FFF159C00D97BE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1683E9071FFF159C00D97BE9 /* KRProductTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KRProductTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1683E90B1FFF159C00D97BE9 /* KRProductTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRProductTests.m; sourceTree = "<group>"; };
+		1683E90D1FFF159C00D97BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1683E9121FFF159C00D97BE9 /* KRProductUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KRProductUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1683E9161FFF159C00D97BE9 /* KRProductUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRProductUITests.m; sourceTree = "<group>"; };
+		1683E9181FFF159C00D97BE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1683E9331FFF1C7300D97BE9 /* KRProductController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductController.h; sourceTree = "<group>"; };
+		1683E9341FFF1C7300D97BE9 /* KRProductController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRProductController.m; sourceTree = "<group>"; };
+		1683E9361FFF1CCA00D97BE9 /* KRStoreHomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRStoreHomeController.h; sourceTree = "<group>"; };
+		1683E9371FFF1CCA00D97BE9 /* KRStoreHomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRStoreHomeController.m; sourceTree = "<group>"; };
+		1683E93D1FFF1D6400D97BE9 /* KRStoreListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRStoreListController.h; sourceTree = "<group>"; };
+		1683E93E1FFF1D6400D97BE9 /* KRStoreListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRStoreListController.m; sourceTree = "<group>"; };
+		1683E9401FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGoodsSelectAttributesView.h; sourceTree = "<group>"; };
+		1683E9411FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGoodsSelectAttributesView.m; sourceTree = "<group>"; };
+		1683E9421FFF1FE000D97BE9 /* KRProductDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRProductDetailView.h; sourceTree = "<group>"; };
+		1683E9431FFF1FE000D97BE9 /* KRProductDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRProductDetailView.m; sourceTree = "<group>"; };
+		1683E9471FFF845400D97BE9 /* KRGoodsAttributeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGoodsAttributeCell.h; sourceTree = "<group>"; };
+		1683E9481FFF845400D97BE9 /* KRGoodsAttributeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGoodsAttributeCell.m; sourceTree = "<group>"; };
+		1683E94C1FFF891300D97BE9 /* TYTabPagerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabPagerBar.h; sourceTree = "<group>"; };
+		1683E94D1FFF891300D97BE9 /* TYTabPagerBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabPagerBar.m; sourceTree = "<group>"; };
+		1683E94E1FFF891300D97BE9 /* TYTabPagerBarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabPagerBarCell.h; sourceTree = "<group>"; };
+		1683E94F1FFF891300D97BE9 /* TYTabPagerBarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabPagerBarCell.m; sourceTree = "<group>"; };
+		1683E9501FFF891300D97BE9 /* TYTabPagerBarLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabPagerBarLayout.h; sourceTree = "<group>"; };
+		1683E9511FFF891300D97BE9 /* TYTabPagerBarLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabPagerBarLayout.m; sourceTree = "<group>"; };
+		1683E9521FFF891300D97BE9 /* TYTabPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabPagerController.h; sourceTree = "<group>"; };
+		1683E9531FFF891300D97BE9 /* TYTabPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabPagerController.m; sourceTree = "<group>"; };
+		1683E9541FFF891300D97BE9 /* TYTabPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabPagerView.h; sourceTree = "<group>"; };
+		1683E9551FFF891300D97BE9 /* TYTabPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabPagerView.m; sourceTree = "<group>"; };
+		1683E9561FFF891300D97BE9 /* TYPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPagerController.h; sourceTree = "<group>"; };
+		1683E9571FFF891300D97BE9 /* TYPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPagerController.m; sourceTree = "<group>"; };
+		1683E9581FFF891300D97BE9 /* TYPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPagerView.h; sourceTree = "<group>"; };
+		1683E9591FFF891300D97BE9 /* TYPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPagerView.m; sourceTree = "<group>"; };
+		1683E95A1FFF891300D97BE9 /* TYPagerViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPagerViewLayout.h; sourceTree = "<group>"; };
+		1683E95B1FFF891300D97BE9 /* TYPagerViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPagerViewLayout.m; sourceTree = "<group>"; };
+		21E3D854F5E32670F6E44CED /* libPods-KRProduct.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KRProduct.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DC39DD101A35BAE58296D67 /* Pods-KRProduct.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRProduct.release.xcconfig"; path = "Pods/Target Support Files/Pods-KRProduct/Pods-KRProduct.release.xcconfig"; sourceTree = "<group>"; };
+		F61A9AD1EEBE17A3F853D235 /* Pods-KRProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KRProduct.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KRProduct/Pods-KRProduct.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1683E8EC1FFF159C00D97BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3682C1EE3ECEA9C830000ED /* libPods-KRProduct.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1683E9041FFF159C00D97BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1683E90F1FFF159C00D97BE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1683E8E61FFF159B00D97BE9 = {
+			isa = PBXGroup;
+			children = (
+				1683E8F11FFF159C00D97BE9 /* KRProduct */,
+				1683E90A1FFF159C00D97BE9 /* KRProductTests */,
+				1683E9151FFF159C00D97BE9 /* KRProductUITests */,
+				1683E8F01FFF159C00D97BE9 /* Products */,
+				4C7345820277A39C8223F1F3 /* Pods */,
+				E442645049AC8970CD8C0F4A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1683E8F01FFF159C00D97BE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1683E8EF1FFF159C00D97BE9 /* KRProduct.app */,
+				1683E9071FFF159C00D97BE9 /* KRProductTests.xctest */,
+				1683E9121FFF159C00D97BE9 /* KRProductUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1683E8F11FFF159C00D97BE9 /* KRProduct */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9241FFF166700D97BE9 /* Classes */,
+				1683E8F21FFF159C00D97BE9 /* AppDelegate.h */,
+				1683E8F31FFF159C00D97BE9 /* AppDelegate.m */,
+				1683E94A1FFF891300D97BE9 /* TYPagerController */,
+				1683E8FB1FFF159C00D97BE9 /* Assets.xcassets */,
+				1683E8FD1FFF159C00D97BE9 /* LaunchScreen.storyboard */,
+				1683E9001FFF159C00D97BE9 /* Info.plist */,
+				1683E9011FFF159C00D97BE9 /* main.m */,
+			);
+			path = KRProduct;
+			sourceTree = "<group>";
+		};
+		1683E90A1FFF159C00D97BE9 /* KRProductTests */ = {
+			isa = PBXGroup;
+			children = (
+				1683E90B1FFF159C00D97BE9 /* KRProductTests.m */,
+				1683E90D1FFF159C00D97BE9 /* Info.plist */,
+			);
+			path = KRProductTests;
+			sourceTree = "<group>";
+		};
+		1683E9151FFF159C00D97BE9 /* KRProductUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9161FFF159C00D97BE9 /* KRProductUITests.m */,
+				1683E9181FFF159C00D97BE9 /* Info.plist */,
+			);
+			path = KRProductUITests;
+			sourceTree = "<group>";
+		};
+		1683E9241FFF166700D97BE9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1683E92F1FFF1B6600D97BE9 /* Targets */,
+				1683E9251FFF1B6600D97BE9 /* Product */,
+				1683E92A1FFF1B6600D97BE9 /* Store */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		1683E9251FFF1B6600D97BE9 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9261FFF1B6600D97BE9 /* Detail */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		1683E9261FFF1B6600D97BE9 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9271FFF1B6600D97BE9 /* Controller */,
+				1683E9281FFF1B6600D97BE9 /* Model */,
+				1683E9291FFF1B6600D97BE9 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		1683E9271FFF1B6600D97BE9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9331FFF1C7300D97BE9 /* KRProductController.h */,
+				1683E9341FFF1C7300D97BE9 /* KRProductController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1683E9281FFF1B6600D97BE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1683E9291FFF1B6600D97BE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9461FFF844000D97BE9 /* Cell */,
+				1683E9401FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.h */,
+				1683E9411FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m */,
+				1683E9421FFF1FE000D97BE9 /* KRProductDetailView.h */,
+				1683E9431FFF1FE000D97BE9 /* KRProductDetailView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1683E92A1FFF1B6600D97BE9 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9391FFF1D4D00D97BE9 /* StoreList */,
+				1683E92B1FFF1B6600D97BE9 /* StoreHome */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		1683E92B1FFF1B6600D97BE9 /* StoreHome */ = {
+			isa = PBXGroup;
+			children = (
+				1683E92C1FFF1B6600D97BE9 /* Controller */,
+				1683E92D1FFF1B6600D97BE9 /* Model */,
+				1683E92E1FFF1B6600D97BE9 /* View */,
+			);
+			path = StoreHome;
+			sourceTree = "<group>";
+		};
+		1683E92C1FFF1B6600D97BE9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9361FFF1CCA00D97BE9 /* KRStoreHomeController.h */,
+				1683E9371FFF1CCA00D97BE9 /* KRStoreHomeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1683E92D1FFF1B6600D97BE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1683E92E1FFF1B6600D97BE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1683E92F1FFF1B6600D97BE9 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		1683E9391FFF1D4D00D97BE9 /* StoreList */ = {
+			isa = PBXGroup;
+			children = (
+				1683E93A1FFF1D4D00D97BE9 /* Controller */,
+				1683E93B1FFF1D4D00D97BE9 /* Model */,
+				1683E93C1FFF1D4D00D97BE9 /* View */,
+			);
+			path = StoreList;
+			sourceTree = "<group>";
+		};
+		1683E93A1FFF1D4D00D97BE9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1683E93D1FFF1D6400D97BE9 /* KRStoreListController.h */,
+				1683E93E1FFF1D6400D97BE9 /* KRStoreListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1683E93B1FFF1D4D00D97BE9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1683E93C1FFF1D4D00D97BE9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1683E9461FFF844000D97BE9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1683E9471FFF845400D97BE9 /* KRGoodsAttributeCell.h */,
+				1683E9481FFF845400D97BE9 /* KRGoodsAttributeCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1683E94A1FFF891300D97BE9 /* TYPagerController */ = {
+			isa = PBXGroup;
+			children = (
+				1683E94B1FFF891300D97BE9 /* TabPager */,
+				1683E9561FFF891300D97BE9 /* TYPagerController.h */,
+				1683E9571FFF891300D97BE9 /* TYPagerController.m */,
+				1683E9581FFF891300D97BE9 /* TYPagerView.h */,
+				1683E9591FFF891300D97BE9 /* TYPagerView.m */,
+				1683E95A1FFF891300D97BE9 /* TYPagerViewLayout.h */,
+				1683E95B1FFF891300D97BE9 /* TYPagerViewLayout.m */,
+			);
+			path = TYPagerController;
+			sourceTree = "<group>";
+		};
+		1683E94B1FFF891300D97BE9 /* TabPager */ = {
+			isa = PBXGroup;
+			children = (
+				1683E94C1FFF891300D97BE9 /* TYTabPagerBar.h */,
+				1683E94D1FFF891300D97BE9 /* TYTabPagerBar.m */,
+				1683E94E1FFF891300D97BE9 /* TYTabPagerBarCell.h */,
+				1683E94F1FFF891300D97BE9 /* TYTabPagerBarCell.m */,
+				1683E9501FFF891300D97BE9 /* TYTabPagerBarLayout.h */,
+				1683E9511FFF891300D97BE9 /* TYTabPagerBarLayout.m */,
+				1683E9521FFF891300D97BE9 /* TYTabPagerController.h */,
+				1683E9531FFF891300D97BE9 /* TYTabPagerController.m */,
+				1683E9541FFF891300D97BE9 /* TYTabPagerView.h */,
+				1683E9551FFF891300D97BE9 /* TYTabPagerView.m */,
+			);
+			path = TabPager;
+			sourceTree = "<group>";
+		};
+		4C7345820277A39C8223F1F3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F61A9AD1EEBE17A3F853D235 /* Pods-KRProduct.debug.xcconfig */,
+				5DC39DD101A35BAE58296D67 /* Pods-KRProduct.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E442645049AC8970CD8C0F4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21E3D854F5E32670F6E44CED /* libPods-KRProduct.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1683E8EE1FFF159C00D97BE9 /* KRProduct */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1683E91B1FFF159C00D97BE9 /* Build configuration list for PBXNativeTarget "KRProduct" */;
+			buildPhases = (
+				A701DE9CB7E720472A11E89E /* [CP] Check Pods Manifest.lock */,
+				1683E8EB1FFF159C00D97BE9 /* Sources */,
+				1683E8EC1FFF159C00D97BE9 /* Frameworks */,
+				1683E8ED1FFF159C00D97BE9 /* Resources */,
+				2FD6CFF2536D05FECFAE2BD8 /* [CP] Embed Pods Frameworks */,
+				EC550B73F12795938F752B20 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KRProduct;
+			productName = KRProduct;
+			productReference = 1683E8EF1FFF159C00D97BE9 /* KRProduct.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1683E9061FFF159C00D97BE9 /* KRProductTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1683E91E1FFF159C00D97BE9 /* Build configuration list for PBXNativeTarget "KRProductTests" */;
+			buildPhases = (
+				1683E9031FFF159C00D97BE9 /* Sources */,
+				1683E9041FFF159C00D97BE9 /* Frameworks */,
+				1683E9051FFF159C00D97BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1683E9091FFF159C00D97BE9 /* PBXTargetDependency */,
+			);
+			name = KRProductTests;
+			productName = KRProductTests;
+			productReference = 1683E9071FFF159C00D97BE9 /* KRProductTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1683E9111FFF159C00D97BE9 /* KRProductUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1683E9211FFF159C00D97BE9 /* Build configuration list for PBXNativeTarget "KRProductUITests" */;
+			buildPhases = (
+				1683E90E1FFF159C00D97BE9 /* Sources */,
+				1683E90F1FFF159C00D97BE9 /* Frameworks */,
+				1683E9101FFF159C00D97BE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1683E9141FFF159C00D97BE9 /* PBXTargetDependency */,
+			);
+			name = KRProductUITests;
+			productName = KRProductUITests;
+			productReference = 1683E9121FFF159C00D97BE9 /* KRProductUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1683E8E71FFF159B00D97BE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Ace;
+				TargetAttributes = {
+					1683E8EE1FFF159C00D97BE9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					1683E9061FFF159C00D97BE9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1683E8EE1FFF159C00D97BE9;
+					};
+					1683E9111FFF159C00D97BE9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1683E8EE1FFF159C00D97BE9;
+					};
+				};
+			};
+			buildConfigurationList = 1683E8EA1FFF159B00D97BE9 /* Build configuration list for PBXProject "KRProduct" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1683E8E61FFF159B00D97BE9;
+			productRefGroup = 1683E8F01FFF159C00D97BE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1683E8EE1FFF159C00D97BE9 /* KRProduct */,
+				1683E9061FFF159C00D97BE9 /* KRProductTests */,
+				1683E9111FFF159C00D97BE9 /* KRProductUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1683E8ED1FFF159C00D97BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1683E8FF1FFF159C00D97BE9 /* LaunchScreen.storyboard in Resources */,
+				1683E8FC1FFF159C00D97BE9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1683E9051FFF159C00D97BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1683E9101FFF159C00D97BE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FD6CFF2536D05FECFAE2BD8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KRProduct/Pods-KRProduct-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A701DE9CB7E720472A11E89E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KRProduct-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC550B73F12795938F752B20 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KRProduct/Pods-KRProduct-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1683E8EB1FFF159C00D97BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1683E95F1FFF891300D97BE9 /* TYTabPagerController.m in Sources */,
+				1683E9601FFF891300D97BE9 /* TYTabPagerView.m in Sources */,
+				1683E9441FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m in Sources */,
+				1683E9631FFF891300D97BE9 /* TYPagerViewLayout.m in Sources */,
+				1683E95C1FFF891300D97BE9 /* TYTabPagerBar.m in Sources */,
+				1683E9611FFF891300D97BE9 /* TYPagerController.m in Sources */,
+				1683E9021FFF159C00D97BE9 /* main.m in Sources */,
+				1683E93F1FFF1D6400D97BE9 /* KRStoreListController.m in Sources */,
+				1683E95D1FFF891300D97BE9 /* TYTabPagerBarCell.m in Sources */,
+				1683E9381FFF1CCA00D97BE9 /* KRStoreHomeController.m in Sources */,
+				1683E9621FFF891300D97BE9 /* TYPagerView.m in Sources */,
+				1683E9351FFF1C7300D97BE9 /* KRProductController.m in Sources */,
+				1683E9491FFF845500D97BE9 /* KRGoodsAttributeCell.m in Sources */,
+				1683E8F41FFF159C00D97BE9 /* AppDelegate.m in Sources */,
+				1683E95E1FFF891300D97BE9 /* TYTabPagerBarLayout.m in Sources */,
+				1683E9451FFF1FE000D97BE9 /* KRProductDetailView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1683E9031FFF159C00D97BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1683E90C1FFF159C00D97BE9 /* KRProductTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1683E90E1FFF159C00D97BE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1683E9171FFF159C00D97BE9 /* KRProductUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1683E9091FFF159C00D97BE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1683E8EE1FFF159C00D97BE9 /* KRProduct */;
+			targetProxy = 1683E9081FFF159C00D97BE9 /* PBXContainerItemProxy */;
+		};
+		1683E9141FFF159C00D97BE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1683E8EE1FFF159C00D97BE9 /* KRProduct */;
+			targetProxy = 1683E9131FFF159C00D97BE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1683E8FD1FFF159C00D97BE9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1683E8FE1FFF159C00D97BE9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1683E9191FFF159C00D97BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1683E91A1FFF159C00D97BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1683E91C1FFF159C00D97BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61A9AD1EEBE17A3F853D235 /* Pods-KRProduct.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TVSF6Q9MU;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Pods/KRPublishLibrary/KRPublishLibrary/KRPublishLibrary/PrefixHeader.pch/";
+				INFOPLIST_FILE = KRProduct/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinrain.KRProduct;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1683E91D1FFF159C00D97BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DC39DD101A35BAE58296D67 /* Pods-KRProduct.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TVSF6Q9MU;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Pods/KRPublishLibrary/KRPublishLibrary/KRPublishLibrary/PrefixHeader.pch/";
+				INFOPLIST_FILE = KRProduct/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinrain.KRProduct;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1683E91F1FFF159C00D97BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TVSF6Q9MU;
+				INFOPLIST_FILE = KRProductTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinrain.KRProductTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KRProduct.app/KRProduct";
+			};
+			name = Debug;
+		};
+		1683E9201FFF159C00D97BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TVSF6Q9MU;
+				INFOPLIST_FILE = KRProductTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinrain.KRProductTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KRProduct.app/KRProduct";
+			};
+			name = Release;
+		};
+		1683E9221FFF159C00D97BE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TVSF6Q9MU;
+				INFOPLIST_FILE = KRProductUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinrain.KRProductUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KRProduct;
+			};
+			name = Debug;
+		};
+		1683E9231FFF159C00D97BE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8TVSF6Q9MU;
+				INFOPLIST_FILE = KRProductUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kinrain.KRProductUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KRProduct;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1683E8EA1FFF159B00D97BE9 /* Build configuration list for PBXProject "KRProduct" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1683E9191FFF159C00D97BE9 /* Debug */,
+				1683E91A1FFF159C00D97BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1683E91B1FFF159C00D97BE9 /* Build configuration list for PBXNativeTarget "KRProduct" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1683E91C1FFF159C00D97BE9 /* Debug */,
+				1683E91D1FFF159C00D97BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1683E91E1FFF159C00D97BE9 /* Build configuration list for PBXNativeTarget "KRProductTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1683E91F1FFF159C00D97BE9 /* Debug */,
+				1683E9201FFF159C00D97BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1683E9211FFF159C00D97BE9 /* Build configuration list for PBXNativeTarget "KRProductUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1683E9221FFF159C00D97BE9 /* Debug */,
+				1683E9231FFF159C00D97BE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1683E8E71FFF159B00D97BE9 /* Project object */;
+}
