@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <BaseNavigationController.h>
-#import "KRProductController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    BaseNavigationController *navController = [[BaseNavigationController alloc] initWithRootViewController:[[KRProductController alloc] init]];
+    BaseNavigationController *navController = [[BaseNavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;

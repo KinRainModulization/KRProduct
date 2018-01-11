@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		167A6EC6200318A500A47F74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EC5200318A500A47F74 /* ViewController.m */; };
+		167A6ECC20035BE900A47F74 /* KRProductBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ECB20035BE900A47F74 /* KRProductBottomView.m */; };
+		167A6ED22004BF0B00A47F74 /* KRProductBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ED12004BF0B00A47F74 /* KRProductBannerView.m */; };
+		167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ED42004BF7800A47F74 /* KRProductBasicView.m */; };
+		167A6EE42006F2FA00A47F74 /* KRCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EE32006F2FA00A47F74 /* KRCommentCell.m */; };
+		167A6EE72007006700A47F74 /* KRCommentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EE62007006700A47F74 /* KRCommentImageView.m */; };
+		167A6EEA20070FC200A47F74 /* KRProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EE920070FC200A47F74 /* KRProductDetailModel.m */; };
 		1683E8F41FFF159C00D97BE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E8F31FFF159C00D97BE9 /* AppDelegate.m */; };
 		1683E8FC1FFF159C00D97BE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1683E8FB1FFF159C00D97BE9 /* Assets.xcassets */; };
 		1683E8FF1FFF159C00D97BE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1683E8FD1FFF159C00D97BE9 /* LaunchScreen.storyboard */; };
@@ -17,7 +24,6 @@
 		1683E9381FFF1CCA00D97BE9 /* KRStoreHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9371FFF1CCA00D97BE9 /* KRStoreHomeController.m */; };
 		1683E93F1FFF1D6400D97BE9 /* KRStoreListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E93E1FFF1D6400D97BE9 /* KRStoreListController.m */; };
 		1683E9441FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9411FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m */; };
-		1683E9451FFF1FE000D97BE9 /* KRProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9431FFF1FE000D97BE9 /* KRProductDetailView.m */; };
 		1683E9491FFF845500D97BE9 /* KRGoodsAttributeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E9481FFF845400D97BE9 /* KRGoodsAttributeCell.m */; };
 		1683E95C1FFF891300D97BE9 /* TYTabPagerBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E94D1FFF891300D97BE9 /* TYTabPagerBar.m */; };
 		1683E95D1FFF891300D97BE9 /* TYTabPagerBarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E94F1FFF891300D97BE9 /* TYTabPagerBarCell.m */; };
@@ -48,6 +54,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		167A6EC4200318A500A47F74 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		167A6EC5200318A500A47F74 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		167A6ECA20035BE900A47F74 /* KRProductBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductBottomView.h; sourceTree = "<group>"; };
+		167A6ECB20035BE900A47F74 /* KRProductBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRProductBottomView.m; sourceTree = "<group>"; };
+		167A6ED02004BF0B00A47F74 /* KRProductBannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductBannerView.h; sourceTree = "<group>"; };
+		167A6ED12004BF0B00A47F74 /* KRProductBannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRProductBannerView.m; sourceTree = "<group>"; };
+		167A6ED32004BF7800A47F74 /* KRProductBasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRProductBasicView.h; sourceTree = "<group>"; };
+		167A6ED42004BF7800A47F74 /* KRProductBasicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRProductBasicView.m; sourceTree = "<group>"; };
+		167A6EE22006F2FA00A47F74 /* KRCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRCommentCell.h; sourceTree = "<group>"; };
+		167A6EE32006F2FA00A47F74 /* KRCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRCommentCell.m; sourceTree = "<group>"; };
+		167A6EE52007006700A47F74 /* KRCommentImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRCommentImageView.h; sourceTree = "<group>"; };
+		167A6EE62007006700A47F74 /* KRCommentImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRCommentImageView.m; sourceTree = "<group>"; };
+		167A6EE820070FC200A47F74 /* KRProductDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductDetailModel.h; sourceTree = "<group>"; };
+		167A6EE920070FC200A47F74 /* KRProductDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRProductDetailModel.m; sourceTree = "<group>"; };
 		1683E8EF1FFF159C00D97BE9 /* KRProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KRProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1683E8F21FFF159C00D97BE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1683E8F31FFF159C00D97BE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -69,8 +89,6 @@
 		1683E93E1FFF1D6400D97BE9 /* KRStoreListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRStoreListController.m; sourceTree = "<group>"; };
 		1683E9401FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGoodsSelectAttributesView.h; sourceTree = "<group>"; };
 		1683E9411FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGoodsSelectAttributesView.m; sourceTree = "<group>"; };
-		1683E9421FFF1FE000D97BE9 /* KRProductDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRProductDetailView.h; sourceTree = "<group>"; };
-		1683E9431FFF1FE000D97BE9 /* KRProductDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRProductDetailView.m; sourceTree = "<group>"; };
 		1683E9471FFF845400D97BE9 /* KRGoodsAttributeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRGoodsAttributeCell.h; sourceTree = "<group>"; };
 		1683E9481FFF845400D97BE9 /* KRGoodsAttributeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRGoodsAttributeCell.m; sourceTree = "<group>"; };
 		1683E94C1FFF891300D97BE9 /* TYTabPagerBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabPagerBar.h; sourceTree = "<group>"; };
@@ -120,6 +138,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		167A6EDD2006F2A300A47F74 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				167A6EDE2006F2A300A47F74 /* Controller */,
+				167A6EDF2006F2A300A47F74 /* Model */,
+				167A6EE02006F2A300A47F74 /* View */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		167A6EDE2006F2A300A47F74 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		167A6EDF2006F2A300A47F74 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		167A6EE02006F2A300A47F74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				167A6EE12006F2A300A47F74 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		167A6EE12006F2A300A47F74 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				167A6EE22006F2FA00A47F74 /* KRCommentCell.h */,
+				167A6EE32006F2FA00A47F74 /* KRCommentCell.m */,
+				167A6EE52007006700A47F74 /* KRCommentImageView.h */,
+				167A6EE62007006700A47F74 /* KRCommentImageView.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		167A6EEB200761EB00A47F74 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		1683E8E61FFF159B00D97BE9 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +216,8 @@
 				1683E9241FFF166700D97BE9 /* Classes */,
 				1683E8F21FFF159C00D97BE9 /* AppDelegate.h */,
 				1683E8F31FFF159C00D97BE9 /* AppDelegate.m */,
+				167A6EC4200318A500A47F74 /* ViewController.h */,
+				167A6EC5200318A500A47F74 /* ViewController.m */,
 				1683E94A1FFF891300D97BE9 /* TYPagerController */,
 				1683E8FB1FFF159C00D97BE9 /* Assets.xcassets */,
 				1683E8FD1FFF159C00D97BE9 /* LaunchScreen.storyboard */,
@@ -188,6 +258,7 @@
 		1683E9251FFF1B6600D97BE9 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				167A6EDD2006F2A300A47F74 /* Comment */,
 				1683E9261FFF1B6600D97BE9 /* Detail */,
 			);
 			path = Product;
@@ -215,6 +286,8 @@
 		1683E9281FFF1B6600D97BE9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				167A6EE820070FC200A47F74 /* KRProductDetailModel.h */,
+				167A6EE920070FC200A47F74 /* KRProductDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,10 +296,14 @@
 			isa = PBXGroup;
 			children = (
 				1683E9461FFF844000D97BE9 /* Cell */,
+				167A6ED32004BF7800A47F74 /* KRProductBasicView.h */,
+				167A6ED42004BF7800A47F74 /* KRProductBasicView.m */,
 				1683E9401FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.h */,
 				1683E9411FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m */,
-				1683E9421FFF1FE000D97BE9 /* KRProductDetailView.h */,
-				1683E9431FFF1FE000D97BE9 /* KRProductDetailView.m */,
+				167A6ECA20035BE900A47F74 /* KRProductBottomView.h */,
+				167A6ECB20035BE900A47F74 /* KRProductBottomView.m */,
+				167A6ED02004BF0B00A47F74 /* KRProductBannerView.h */,
+				167A6ED12004BF0B00A47F74 /* KRProductBannerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -309,6 +386,7 @@
 		1683E93C1FFF1D4D00D97BE9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				167A6EEB200761EB00A47F74 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -556,22 +634,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167A6EC6200318A500A47F74 /* ViewController.m in Sources */,
 				1683E95F1FFF891300D97BE9 /* TYTabPagerController.m in Sources */,
+				167A6EE42006F2FA00A47F74 /* KRCommentCell.m in Sources */,
 				1683E9601FFF891300D97BE9 /* TYTabPagerView.m in Sources */,
 				1683E9441FFF1FE000D97BE9 /* KRGoodsSelectAttributesView.m in Sources */,
 				1683E9631FFF891300D97BE9 /* TYPagerViewLayout.m in Sources */,
 				1683E95C1FFF891300D97BE9 /* TYTabPagerBar.m in Sources */,
+				167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */,
 				1683E9611FFF891300D97BE9 /* TYPagerController.m in Sources */,
+				167A6EE72007006700A47F74 /* KRCommentImageView.m in Sources */,
+				167A6EEA20070FC200A47F74 /* KRProductDetailModel.m in Sources */,
 				1683E9021FFF159C00D97BE9 /* main.m in Sources */,
 				1683E93F1FFF1D6400D97BE9 /* KRStoreListController.m in Sources */,
 				1683E95D1FFF891300D97BE9 /* TYTabPagerBarCell.m in Sources */,
 				1683E9381FFF1CCA00D97BE9 /* KRStoreHomeController.m in Sources */,
+				167A6ED22004BF0B00A47F74 /* KRProductBannerView.m in Sources */,
 				1683E9621FFF891300D97BE9 /* TYPagerView.m in Sources */,
+				167A6ECC20035BE900A47F74 /* KRProductBottomView.m in Sources */,
 				1683E9351FFF1C7300D97BE9 /* KRProductController.m in Sources */,
 				1683E9491FFF845500D97BE9 /* KRGoodsAttributeCell.m in Sources */,
 				1683E8F41FFF159C00D97BE9 /* AppDelegate.m in Sources */,
 				1683E95E1FFF891300D97BE9 /* TYTabPagerBarLayout.m in Sources */,
-				1683E9451FFF1FE000D97BE9 /* KRProductDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

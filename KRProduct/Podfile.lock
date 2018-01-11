@@ -1,11 +1,11 @@
 PODS:
-  - KRPublishLibrary (0.0.9)
+  - KRPublishLibrary (0.0.10)
 
 DEPENDENCIES:
   - KRPublishLibrary
 
 SPEC CHECKSUMS:
-  KRPublishLibrary: 217979a434d4d58196cdb09dd9774a5b680ff8fc
+  KRPublishLibrary: a3180223bd72b670f80433edec877de0a246ae01
 
 PODFILE CHECKSUM: d8d093c20a8d0181d362770c81107ed11f8c3204
 
