@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class KRProductBottomView;
+
+@protocol KRProductBottomViewDelegate <NSObject>
+
+- (void)storeButtonClick:(KRProductBottomView *)productBottomView;
+
+- (void)shoppingCartButtonClick:(KRProductBottomView *)productBottomView;
+
+- (void)orderButtonClick:(KRProductBottomView *)productBottomView;
+
+- (void)addShoppingCart:(KRProductBottomView *)productBottomView;
+
+@end
+
 @interface KRProductBottomView : UIView
+
+@property (nonatomic, weak) id<KRProductBottomViewDelegate> delegate;
 
 @end

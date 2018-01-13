@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class KRProductBasicView;
+
+@protocol KRProductBasicViewDelegate <NSObject>
+
+- (void)productBasicViewPullUp:(KRProductBasicView *)productBasicView;
+
+@end
+
 @interface KRProductBasicView : UIView
+
+@property (nonatomic, weak) id<KRProductBasicViewDelegate> delegate;
 
 @end

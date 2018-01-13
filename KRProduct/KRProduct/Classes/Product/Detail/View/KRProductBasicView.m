@@ -7,35 +7,58 @@
 //
 
 #import "KRProductBasicView.h"
-#import <NewPagedFlowView.h>
 #import <EllipsePageControl.h>
-#import "KRProductBannerView.h"
+#import "KRGoodsImageCell.h"
 #import <KRCustomPriceView.h>
 #import <KRArrowIconRowView.h>
 #import "KRCommentCell.h"
 #import "KRProductDetailModel.h"
 
-#define kProductPicHeight SCREEN_WIDTH-24
-#define kProductBannerpHeight 10+kProductPicHeight+20
+#define kGoodsImgWidth SCREEN_WIDTH
+#define kGoodsBannerHeight 10+kGoodsImgWidth+20
+#define kBasicPullUpHeight 55
 
-@interface KRProductBasicView () <NewPagedFlowViewDelegate, NewPagedFlowViewDataSource>
+static NSString *kGoodsImageCellIdentifier = @"kGoodsImageCellIdentifier";
 
-@property (nonatomic, strong) UIScrollView *goodsScrollView;
+typedef enum {
+    BasicViewPullStateUP = 1,
+    BasicViewPullStateDown,
+} BasicPullState;
+
+@interface KRProductBasicView () <UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) UIScrollView *basicScrollView;
 @property (nonatomic, strong) UIView *contentView;
-@property (nonatomic, strong) NewPagedFlowView *pageFlowView;
+@property (nonatomic, strong) UICollectionView *goodsImgCollectionView;
 @property (nonatomic, strong) EllipsePageControl *pageControl;
 @property (nonatomic, strong) UILabel *goodsNameLabel;
 @property (nonatomic, strong) UILabel *goodsBriefLabel;
 @property (nonatomic, strong) KRCustomPriceView *goodsPriceLabel;
 @property (nonatomic, strong) UILabel *originalPriceLabel;
 @property (nonatomic, strong) KRArrowIconRowView *attrsSelectView;
+
 @property (nonatomic, strong) KRArrowIconRowView *commentHeadView;
 @property (nonatomic, strong) UILabel *goodsScoreLabel;
 @property (nonatomic, strong) UIView *commentView;
 @property (nonatomic, strong) UIButton *allCommentBtn;
 @property (nonatomic, strong) UILabel *allCommentLabel;
+
 @property (nonatomic, strong) KRArrowIconRowView *storeHeadView;
+@property (nonatomic, strong) UIButton *storeBtn;
+@property (nonatomic, strong) UILabel *storeNameLabel;
+@property (nonatomic, strong) UILabel *storeAddressLabel;
+@property (nonatomic, strong) UILabel *storeDistanceLabel;
+@property (nonatomic, strong) UILabel *storeScoreLabel;
+@property (nonatomic, strong) UIButton *storeHotlineBtn;
+
+//@property (nonatomic, strong) UIView *detailPullDownView;
+@property (nonatomic, strong) UIView *basicPullUpView;
+@property (nonatomic, strong) UILabel *basicPullUpLabel;
+@property (nonatomic, strong) UIImageView *basicPullUpImgView;
+
 @property (nonatomic, strong) NSArray *images;
+@property (nonatomic, assign) BasicPullState pullState;
+
 @end
 
 @implementation KRProductBasicView
@@ -50,9 +73,10 @@
 - (void)prepareUI {
     self.backgroundColor = GLOBAL_BACKGROUND_COLOR;
     
-    [self addSubview:self.goodsScrollView];
-    [_goodsScrollView addSubview:self.contentView];
-    [_contentView addSubview:self.pageFlowView];
+    [self addSubview:self.basicScrollView];
+    [_basicScrollView addSubview:self.contentView];
+//    [_contentView addSubview:self.pageFlowView];
+    [_contentView addSubview:self.goodsImgCollectionView];
     [_contentView addSubview:self.pageControl];
     [_contentView addSubview:self.goodsNameLabel];
     [_contentView addSubview:self.goodsBriefLabel];
@@ -70,19 +94,48 @@
     [_contentView addSubview:self.commentView];
     [_contentView addSubview:self.allCommentBtn];
     [_allCommentBtn addSubview:self.allCommentLabel];
-    [_contentView addSubview:self.storeHeadView];
     UIView *storeTopLineView = [self createGrayLineView];
     [_contentView addSubview:storeTopLineView];
+    [_contentView addSubview:self.storeHeadView];
+    UIView *storeBottomLineView = [self createGrayLineView];
+    [_storeHeadView addSubview:storeBottomLineView];
+    [_contentView addSubview:self.storeBtn];
+    [_storeBtn addSubview:self.storeNameLabel];
+    [_storeBtn addSubview:self.storeAddressLabel];
+    UIImageView *storeDistanceImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_located"]];
+    [_storeBtn addSubview:storeDistanceImgView];
+    [_storeBtn addSubview:self.storeDistanceLabel];
+    UIImageView *storeScoreImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_rated_score"]];
+    [_storeBtn addSubview:storeScoreImgView];
+    [_storeBtn addSubview:self.storeScoreLabel];
+    UIView *storeLineView = [self createGrayLineView];
+    [_storeBtn addSubview:storeLineView];
+    [_storeBtn addSubview:self.storeHotlineBtn];
+    
+    [_contentView addSubview:self.basicPullUpView];
+    UIView *leftLineView = [[UIView alloc] init];
+    leftLineView.backgroundColor = RGB(230, 230, 230);
+    [_basicPullUpView addSubview:leftLineView];
+    UIView *rightLineView = [[UIView alloc] init];
+    rightLineView.backgroundColor = RGB(230, 230, 230);
+    [_basicPullUpView addSubview:rightLineView];
+    [_basicPullUpView addSubview:self.basicPullUpLabel];
+    [_basicPullUpView addSubview:self.basicPullUpImgView];
 
-    [_goodsScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_basicScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_goodsScrollView);
-        make.width.equalTo(_goodsScrollView);
+        make.edges.equalTo(_basicScrollView);
+        make.width.equalTo(_basicScrollView);
+    }];
+    [_goodsImgCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_contentView).offset(10);
+        make.leading.trailing.equalTo(_contentView);
+        make.height.mas_offset(kGoodsImgWidth);
     }];
     [_goodsNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_contentView).offset(kProductBannerpHeight+10);
+        make.top.equalTo(_contentView).offset(kGoodsBannerHeight+10);
         make.leading.equalTo(_contentView).offset(12);
         make.trailing.equalTo(_contentView).offset(-12);
     }];
@@ -131,6 +184,7 @@
         make.leading.trailing.equalTo(_contentView);
     }];
     
+    
     // test
     CGFloat commentH = 0;
     for (int i = 0; i < 3; i++) {
@@ -149,6 +203,7 @@
         make.height.mas_equalTo(commentH);
     }];
     
+    
     [_allCommentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_commentView.mas_bottom);
         make.leading.trailing.height.equalTo(_commentHeadView);
@@ -165,12 +220,79 @@
         make.top.equalTo(storeTopLineView.mas_bottom);
         make.leading.trailing.height.equalTo(_commentHeadView);
     }];
-    
-
+    [storeBottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(_storeHeadView);
+        make.leading.equalTo(_storeHeadView).offset(12);
+        make.trailing.equalTo(_storeHeadView).offset(-12);
+        make.height.mas_equalTo(0.5);
+    }];
+    [_storeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_storeHeadView.mas_bottom);
+        make.leading.trailing.equalTo(_contentView);
+        make.height.mas_equalTo(90);
+    }];
+    [_storeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_storeBtn).offset(15);
+        make.leading.equalTo(_storeBtn).offset(12);
+        make.trailing.equalTo(storeLineView.mas_leading);
+    }];
+    [_storeAddressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_storeNameLabel.mas_bottom).offset(10);
+        make.leading.trailing.equalTo(_storeNameLabel);
+    }];
+    [storeDistanceImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(_storeBtn).offset(12);
+        make.bottom.equalTo(_storeBtn).offset(-13.5);
+    }];
+    [_storeDistanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(storeDistanceImgView.mas_trailing).offset(6);
+        make.bottom.equalTo(storeDistanceImgView);
+    }];
+    [storeScoreImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(_storeDistanceLabel.mas_trailing).offset(12);
+        make.bottom.equalTo(storeDistanceImgView);
+    }];
+    [_storeScoreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(storeScoreImgView.mas_trailing).offset(6);
+        make.bottom.equalTo(storeDistanceImgView);
+    }];
+    [storeLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_storeBtn).offset(14);
+        make.trailing.equalTo(_storeBtn).offset(-64);
+        make.bottom.equalTo(_storeBtn).offset(-14);
+        make.width.mas_equalTo(0.5);
+    }];
+    [_storeHotlineBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.trailing.equalTo(_storeBtn);
+        make.width.mas_equalTo(64);
+    }];
+    [_basicPullUpView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_storeBtn.mas_bottom);
+        make.leading.trailing.equalTo(_contentView);
+        make.height.mas_equalTo(kBasicPullUpHeight);
+    }];
+    [_basicPullUpLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_basicPullUpView).offset(-10);
+        make.centerX.equalTo(_basicPullUpView);
+    }];
+    [leftLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_basicPullUpLabel);
+        make.leading.equalTo(_basicPullUpView).offset(13);
+        make.trailing.equalTo(_basicPullUpLabel.mas_leading).offset(-13);
+        make.height.mas_equalTo(0.5);
+    }];
+    [rightLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.height.equalTo(leftLineView);
+        make.leading.equalTo(_basicPullUpLabel.mas_trailing).offset(13);
+        make.trailing.equalTo(_basicPullUpView).offset(-13);
+    }];
+    [_basicPullUpImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_basicPullUpLabel.mas_bottom).offset(2);
+        make.centerX.equalTo(_basicPullUpView);
+    }];
     
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(_storeHeadView.mas_bottom);
-//        make.height.mas_equalTo(1800);
+        make.bottom.equalTo(_basicPullUpView.mas_bottom);
     }];
 }
 
@@ -180,40 +302,53 @@
     return lineView;
 }
 
-#pragma mark - NewPagedFlowView Delegate
-
-- (void)didSelectCell:(UIView *)subView withSubViewIndex:(NSInteger)subIndex {
-    NSLog(@"点击了第%ld张图",(long)subIndex + 1);
+- (void)pullStateChange {
+    self.basicPullUpLabel.text = _pullState ==  BasicViewPullStateDown ? @"释放查看图文详情" : @"上拉查看图文详情";
+    [UIView animateWithDuration:0.25 animations:^{
+        self.basicPullUpImgView.transform = CGAffineTransformMakeRotation(_pullState ==  BasicViewPullStateDown ? 0.0001 : M_PI);
+    }];
 }
 
-- (void)didScrollToPage:(NSInteger)pageNumber inFlowView:(NewPagedFlowView *)flowView {
-    self.pageControl.currentPage = pageNumber;
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView == _basicScrollView) {
+        CGFloat offsetY = scrollView.contentOffset.y;
+        CGFloat scrollH = scrollView.size.height;
+        CGFloat threshold = 20;
+        if (offsetY + scrollH > scrollView.contentSize.height + threshold) {
+            _pullState = BasicViewPullStateDown;
+        }
+        else {
+            _pullState = BasicViewPullStateUP;
+        }
+        [self pullStateChange];
+    }
+    else if (scrollView == _goodsImgCollectionView) {
+        NSInteger pageNumber = scrollView.contentOffset.x / scrollView.bounds.size.width + 0.5;
+        self.pageControl.currentPage = pageNumber;
+    }
 }
 
-- (CGSize)sizeForPageInFlowView:(NewPagedFlowView *)flowView {
-    return CGSizeMake(kProductPicHeight, kProductPicHeight);
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
 }
 
-#pragma mark - NewPagedFlowView Datasource
+#pragma mark - UICollectionViewDelegate
 
-- (NSInteger)numberOfPagesInFlowView:(NewPagedFlowView *)flowView {
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return self.images.count;
 }
 
-- (PGIndexBannerSubiew *)flowView:(NewPagedFlowView *)flowView cellForPageAtIndex:(NSInteger)index{
-    
-    KRProductBannerView *bannerView = (KRProductBannerView *)[flowView dequeueReusableCell];
-    if (!bannerView) {
-        bannerView = [[KRProductBannerView alloc] init];
-    }
-    
-    //[bannerView.mainImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:hostUrlsImg,imageDict[@"img"]]] placeholderImage:[UIImage imageNamed:@""]];
-    
-    //    bannerView.mainImageView.image = self.bannerArray[index];
-    return bannerView;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    KRGoodsImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGoodsImageCellIdentifier forIndexPath:indexPath];
+    return cell;
 }
 
 #pragma mark - Setter/Getter
+
 - (NSArray *)images {
     if (!_images) {
         _images = @[@"url",@"url",@"url",@"url"];
@@ -221,12 +356,13 @@
     return _images;
 }
 
-- (UIScrollView *)goodsScrollView {
-    if (!_goodsScrollView) {
-        _goodsScrollView = [[UIScrollView alloc] initWithFrame:self.frame];
-        _goodsScrollView.showsVerticalScrollIndicator = NO;
+- (UIScrollView *)basicScrollView {
+    if (!_basicScrollView) {
+        _basicScrollView = [[UIScrollView alloc] initWithFrame:self.frame];
+        _basicScrollView.showsVerticalScrollIndicator = NO;
+        _basicScrollView.delegate = self;
     }
-    return _goodsScrollView;
+    return _basicScrollView;
 }
 
 - (UIView *)contentView {
@@ -237,25 +373,26 @@
     return _contentView;
 }
 
-- (NewPagedFlowView *)pageFlowView {
-    if (!_pageFlowView) {
-        NewPagedFlowView *pageFlowView = [[NewPagedFlowView alloc] initWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, kProductPicHeight)];
-        pageFlowView.delegate = self;
-        pageFlowView.dataSource = self;
-        pageFlowView.minimumPageAlpha = 0.4;
-        pageFlowView.leftRightMargin = 15;
-        pageFlowView.topBottomMargin = 0;
-        pageFlowView.orginPageCount = self.images.count;
-        pageFlowView.isOpenAutoScroll = YES;
-        _pageFlowView = pageFlowView;
-        [_pageFlowView reloadData];
+- (UICollectionView *)goodsImgCollectionView {
+    if (!_goodsImgCollectionView) {
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.itemSize = CGSizeMake(kGoodsImgWidth, kGoodsImgWidth);
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        layout.minimumLineSpacing = 0;
+        _goodsImgCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _goodsImgCollectionView.backgroundColor = GLOBAL_BACKGROUND_COLOR;
+        _goodsImgCollectionView.showsHorizontalScrollIndicator = NO;
+        _goodsImgCollectionView.pagingEnabled = YES;
+        _goodsImgCollectionView.dataSource = self;
+        _goodsImgCollectionView.delegate = self;
+        [_goodsImgCollectionView registerClass:[KRGoodsImageCell class] forCellWithReuseIdentifier:kGoodsImageCellIdentifier];
     }
-    return _pageFlowView;
+    return _goodsImgCollectionView;
 }
 
 - (EllipsePageControl *)pageControl {
     if (!_pageControl) {
-        EllipsePageControl *pageControl = [[EllipsePageControl alloc] initWithFrame:CGRectMake(0, kProductBannerpHeight-7.5, SCREEN_WIDTH, 4)];
+        EllipsePageControl *pageControl = [[EllipsePageControl alloc] initWithFrame:CGRectMake(0, kGoodsBannerHeight-7.5, SCREEN_WIDTH, 4)];
         pageControl.numberOfPages = self.images.count;
         pageControl.otherColor = RGB(220, 220, 220);
         _pageControl = pageControl;
@@ -354,6 +491,73 @@
         _storeHeadView = [KRArrowIconRowView rowViewWithSize:CGSizeMake(SCREEN_WIDTH, 50) title:@"连锁店铺" subtitle:nil iconName:nil hiddenArrow:NO];
     }
     return _storeHeadView;
+}
+
+- (UIButton *)storeBtn {
+    if (!_storeBtn) {
+        _storeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    }
+    return _storeBtn;
+}
+
+- (UILabel *)storeNameLabel {
+    if (!_storeNameLabel) {
+        _storeNameLabel = [UILabel labelWithText:@"店铺名" textColor:FONT_COLOR_33 fontSize:14];
+        _storeNameLabel.numberOfLines = 1;
+    }
+    return _storeNameLabel;
+}
+
+- (UILabel *)storeAddressLabel {
+    if (!_storeAddressLabel) {
+        _storeAddressLabel = [UILabel labelWithText:@"店铺地址" textColor:FONT_COLOR_99 fontSize:12];
+        _storeAddressLabel.numberOfLines = 1;
+    }
+    return _storeAddressLabel;
+}
+
+- (UILabel *)storeDistanceLabel {
+    if (!_storeDistanceLabel) {
+        _storeDistanceLabel = [UILabel labelWithText:@"1.3km" textColor:FONT_COLOR_99 fontSize:12];
+    }
+    return _storeDistanceLabel;
+}
+
+- (UILabel *)storeScoreLabel {
+    if (!_storeScoreLabel) {
+        _storeScoreLabel = [UILabel labelWithText:@"评分" textColor:FONT_COLOR_99 fontSize:12];
+    }
+    return _storeScoreLabel;
+}
+
+- (UIButton *)storeHotlineBtn {
+    if (!_storeHotlineBtn) {
+        _storeHotlineBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_storeHotlineBtn setImage:[UIImage imageNamed:@"phone_call"] forState:UIControlStateNormal];
+    }
+    return _storeHotlineBtn;
+}
+
+- (UIView *)basicPullUpView {
+    if (!_basicPullUpView) {
+        _basicPullUpView = [[UIView alloc] init];
+        _basicPullUpView.backgroundColor = GLOBAL_BACKGROUND_COLOR;
+    }
+    return _basicPullUpView;
+}
+
+- (UILabel *)basicPullUpLabel {
+    if (!_basicPullUpLabel) {
+        _basicPullUpLabel = [UILabel labelWithText:@"上拉查看图文详情" textColor:FONT_COLOR_99 fontSize:12];
+    }
+    return _basicPullUpLabel;
+}
+
+- (UIImageView *)basicPullUpImgView {
+    if (!_basicPullUpImgView) {
+        _basicPullUpImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_pull_arrow"]];
+    }
+    return _basicPullUpImgView;
 }
 
 @end

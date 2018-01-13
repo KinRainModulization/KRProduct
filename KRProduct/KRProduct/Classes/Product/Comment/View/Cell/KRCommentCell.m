@@ -131,12 +131,11 @@
         make.leading.equalTo(_contentLabel);
         make.size.mas_equalTo(CGSizeMake(commentImgW, commentImgH));
     }];
-    MLog(@"初始frame=%@",NSStringFromCGRect(self.commentImgView.frame));
 }
 
 - (CGFloat)getCellHeight {
     [self layoutIfNeeded];
-    MLog(@"最终frame=%f",CGRectGetMaxY(self.commentImgView.frame));
+    // 15.5 = lineView + margin
     return CGRectGetMaxY(self.commentImgView.frame)+15.5;
 }
 

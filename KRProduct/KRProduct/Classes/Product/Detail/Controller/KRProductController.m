@@ -7,16 +7,18 @@
 //
 
 #import "KRProductController.h"
-#import "TYPagerView.h"
 #import "TYTabPagerBar.h"
-#import "KRProductBottomView.h"
 #import "KRProductBasicView.h"
+#import "KRProductDetailView.h"
+#import "KRProductBottomView.h"
+#import "KRProductSelectAttributesView.h"
+#import "UIViewController+KNSemiModal.h"
 
-#define kProductPageViewHeight SCREEN_HEIGHT-kProductBottomViewHeight
+#define kProductPageViewHeight SCREEN_HEIGHT-kProductBottomViewHeight-NAV_BAR_HEIGHT
 
 static const CGFloat kProductBottomViewHeight = 47;
 
-@interface KRProductController () <UIScrollViewDelegate,TYTabPagerBarDataSource,TYTabPagerBarDelegate>
+@interface KRProductController () <UIScrollViewDelegate,TYTabPagerBarDataSource,TYTabPagerBarDelegate,KRProductBottomViewDelegate>
 
 @property (nonatomic, weak) TYTabPagerBar *tabBar;
 
@@ -25,6 +27,10 @@ static const CGFloat kProductBottomViewHeight = 47;
 @property (nonatomic, weak) KRProductBottomView *bottomView;
 
 @property (nonatomic, weak) KRProductBasicView *productBasicView;
+
+@property (nonatomic, weak) KRProductDetailView *productDetailView;
+
+@property (nonatomic, strong) KRProductSelectAttributesView *selectAttrsView;
 
 @property (nonatomic, strong) NSArray *datas;
 
@@ -82,25 +88,29 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
     pageScrollView.contentSize = CGSizeMake(SCREEN_WIDTH*2, kProductPageViewHeight);
     pageScrollView.delegate = self;
     pageScrollView.pagingEnabled = YES;
+    pageScrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:pageScrollView];
     _pageScrollView = pageScrollView;
     
-    KRProductBasicView *productBasicView = [[KRProductBasicView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kProductPageViewHeight-NAV_BAR_HEIGHT)];
+    KRProductBasicView *productBasicView = [[KRProductBasicView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kProductPageViewHeight)];
     _productBasicView = productBasicView;
     [pageScrollView addSubview:productBasicView];
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, kProductPageViewHeight)];
-    view.backgroundColor = [UIColor blueColor];
-    [pageScrollView addSubview:view];
+    
+    KRProductDetailView *productDetailView = [[KRProductDetailView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, kProductPageViewHeight)];
+    _productDetailView = productDetailView;
+    _productDetailView.images = @[@"imgURL",@"imgURL",@"imgURL",@"imgURL"];
+    [pageScrollView addSubview:productDetailView];
 }
-
-#pragma mark - Action
 
 - (void)addBottomView {
     KRProductBottomView *bottom = [[KRProductBottomView alloc] init];
+    bottom.delegate = self;
     [self.view addSubview:bottom];
     _bottomView = bottom;
 }
+
+#pragma mark - Action
 
 - (void)shareBtnClick {
     MLog(@"shareBtnClick");
@@ -148,6 +158,16 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
     _preOffsetX = scrollView.contentOffset.x;
 }
 
+#pragma mark - KRProductBottomViewDelegate
+
+- (void)orderButtonClick:(KRProductBottomView *)productBottomView {
+    //test
+    [self presentSemiView:self.selectAttrsView withOptions:@{
+                                                             KNSemiModalOptionKeys.parentAlpha : @0.8,
+//                                                             KNSemiModalOptionKeys.backgroundView : bgView
+                                                             }];
+}
+
 #pragma mark - TYTabPagerBarDataSource
 
 - (NSInteger)numberOfItemsInPagerTabBar {
@@ -177,5 +197,20 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
         _pages = @[@"商品",@"店铺"];
     }
     return _pages;
+}
+
+- (KRProductSelectAttributesView *)selectAttrsView {
+    if (!_selectAttrsView) {
+        _selectAttrsView = [[KRProductSelectAttributesView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.55)];
+        NSArray *arrtArray = @[
+                               @{@"title":@"颜色",@"attr":@[@"红色",@"蓝色",@"白色",@"黑色",@"一一色",@"一二色",@"三五色"]},
+                               @{@"title":@"大小",@"attr":@[@"大",@"中",@"小"]},
+                               @{@"title":@"测试",@"attr":@[@"测试"]},
+                               @{@"title":@"尺寸",@"attr":@[@"1000",@"2000",@"2",@"60",@"1321213",@"1212",@"1231231321321"]},
+                               ];
+        _selectAttrsView.attrArray = arrtArray;
+    }
+    return _selectAttrsView;
+
 }
 @end

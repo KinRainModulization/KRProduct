@@ -64,6 +64,18 @@
     }];
 }
 
+- (UIButton *)createVerticalButtonWithTitle:(NSString *)title image:(NSString *)imageName action:(SEL)action {
+    UIButton *button = [UIButton buttonWithTitle:title fontSize:12 titleColor:FONT_COLOR_33 target:self action:action];
+    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [button sizeToFit];
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.height+2.5,-button.imageView.width, 0,0)];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(-(button.titleLabel.height+2.5), 0,0, -button.titleLabel.width)];
+    return button;
+}
+
+#pragma mark - Action
+
 - (void)storeBtnClick {
     
 }
@@ -77,17 +89,9 @@
 }
 
 - (void)buyBtnClick {
-    
-}
-
-- (UIButton *)createVerticalButtonWithTitle:(NSString *)title image:(NSString *)imageName action:(SEL)action {
-    UIButton *button = [UIButton buttonWithTitle:title fontSize:12 titleColor:FONT_COLOR_33 target:self action:action];
-    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    [button sizeToFit];
-    [button setTitleEdgeInsets:UIEdgeInsetsMake(button.imageView.height+2.5,-button.imageView.width, 0,0)];
-    [button setImageEdgeInsets:UIEdgeInsetsMake(-(button.titleLabel.height+2.5), 0,0, -button.titleLabel.width)];
-    return button;
+    if ([_delegate respondsToSelector:@selector(orderButtonClick:)]) {
+        [_delegate orderButtonClick:self];
+    }
 }
 
 #pragma mark - Setter/Getter

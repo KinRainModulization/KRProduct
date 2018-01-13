@@ -1,5 +1,5 @@
 //
-//  KRGoodsSelectAttributesView.h
+//  KRProductSelectAttributesView.h
 //  Yml
 //
 //  Created by LX on 2017/11/20.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface KRGoodsSelectAttributesView : UIView
+@interface KRProductSelectAttributesView : UIView
 
 @property (nonatomic, strong) NSArray *attrArray;
 

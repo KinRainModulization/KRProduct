@@ -8,9 +8,12 @@
 
 #import "KRGoodsAttributeCell.h"
 
-#define BtnHeight 30
-#define PaddingHorizontal 10
-#define PaddingVertical 5
+#define kContentW SCREEN_WIDTH-24
+static const CGFloat kBtnHeight = 25;
+static const CGFloat kTitleHeight = 50;
+static const CGFloat kPaddingHorizontal = 10;
+static const CGFloat kPaddingVertical = 5;
+static const CGFloat kBtnPadding = 24;
 
 @interface KRGoodsAttributeCell ()
 
@@ -21,54 +24,49 @@
 
 - (CGFloat)heightForCell {
     CGFloat pointX = 0;
-    CGFloat pointY = 50; //标题高度
-    CGFloat sumW = SCREEN_WIDTH - PaddingHorizontal;
-    CGFloat fontW = SCREEN_WIDTH / 2 / 10.0f;// 字符所占宽度
+    CGFloat pointY = kTitleHeight;
+    CGFloat sumW = kContentW;
     NSArray *attrArray = _attrs[@"attr"];
     for (int i = 0; i< attrArray.count; i++) {
-        NSString *str = attrArray[i];
-        CGFloat btnWidth = str.length * fontW + 20;
-
+        CGFloat fontW = [attrArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}].width;
+        CGFloat btnWidth = fontW + kBtnPadding;
         if (pointX + btnWidth > sumW) {
             pointX = 0;
-            pointY += (BtnHeight + PaddingVertical);
+            pointY += (kBtnHeight + kPaddingVertical);
         }
-        pointX += (btnWidth + PaddingHorizontal);
+        pointX += (btnWidth + kPaddingHorizontal);
     }
-    return pointY + BtnHeight;
+    return pointY + kBtnHeight;
 }
 
 - (void)setAttrs:(NSDictionary *)attrs {
     _attrs = attrs;
-    UILabel *titleLabel = [UILabel labelWithText:attrs[@"title"] textColor:[UIColor blackColor] fontSize:16];
-    titleLabel.frame = CGRectMake(0, 0, titleLabel.width, 50);
+    UILabel *titleLabel = [UILabel labelWithText:attrs[@"title"] textColor:FONT_COLOR_33 fontSize:14];
+    titleLabel.frame = CGRectMake(0, 0, titleLabel.width, kTitleHeight);
     [self addSubview:titleLabel];
     CGFloat pointX = 0;
     CGFloat pointY = titleLabel.height;
-    CGFloat sumW = SCREEN_WIDTH - PaddingHorizontal;
-    UIFont *fontSize = [UIFont systemFontOfSize:15];
+    CGFloat sumW = kContentW;
     
     NSArray *attrArray = attrs[@"attr"];
     for (int i = 0; i < attrArray.count; i++) {
-        CGRect frame = [attrArray[i] boundingRectWithSize:CGSizeMake(MAXFLOAT, BtnHeight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : fontSize} context:nil];
-        CGFloat btnWidth = frame.size.width + 20;
+//        CGRect frame = [attrArray[i] boundingRectWithSize:CGSizeMake(MAXFLOAT, kBtnHeight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : fontSize} context:nil];
+//        CGFloat btnWidth = frame.size.width + kBtnPadding;
+        CGFloat fontW = [attrArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:12]}].width;
+        CGFloat btnWidth = fontW + kBtnPadding;
         // 换行
         if (pointX + btnWidth > sumW) {
             pointX = 0;
-            pointY += (BtnHeight + PaddingVertical);
+            pointY += (kBtnHeight + kPaddingVertical);
         }
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(pointX, pointY, btnWidth, BtnHeight);
+        UIButton *button = [UIButton buttonWithTitle:attrArray[i] fontSize:12 titleColor:FONT_COLOR_99 target:self action:@selector(buttonDidClick:)];
+        button.frame = CGRectMake(pointX, pointY, btnWidth, kBtnHeight);
         button.tag = i;
-        [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+        button.backgroundColor = RGB(240, 240, 240);
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         button.layer.masksToBounds = YES;
-        button.layer.cornerRadius = BtnHeight*0.3;
-        button.layer.borderWidth = 1;
-        button.layer.borderColor = [UIColor redColor].CGColor;
-        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [button setTitle:attrArray[i] forState:UIControlStateNormal];
-        button.titleLabel.font = fontSize;
-        pointX += (btnWidth + PaddingHorizontal);
+        button.layer.cornerRadius = 12.5;
+        pointX += (btnWidth + kPaddingHorizontal);
         [self addSubview:button];
     }
 }
@@ -76,26 +74,5 @@
 - (void)buttonDidClick:(UIButton *)sender {
     MLog(@"%ld",(long)sender.tag);
 }
-
-//- (CGFloat)heightForCell {
-//    CGFloat sumW = 0;
-//    CGFloat sumH = PaddingVertical+BtnHeight;
-//    CGFloat fontW = SCREEN_WIDTH / 2 / 10.0f;// 字符所占宽度
-//    
-//    for (int i = 0; i< _attrs.count; i++) {
-//        NSString *str = _attrs[i];
-//        NSInteger numberOfStr = str.length;
-//        sumW += PaddingHorizontal + numberOfStr * fontW;
-//        // 换行
-//        if (sumW > (SCREEN_WIDTH - PaddingHorizontal * 2)) {
-//            sumW = 0;
-//            sumW += PaddingHorizontal + numberOfStr * fontW;
-//            sumH += PaddingVertical + BtnHeight;
-//        }
-//    }
-////    sumH += PaddingVertical;
-//    return sumH;
-//}
-
 
 @end
