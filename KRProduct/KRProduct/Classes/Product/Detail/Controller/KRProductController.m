@@ -13,6 +13,8 @@
 #import "KRProductBottomView.h"
 #import "KRProductSelectAttributesView.h"
 #import "UIViewController+KNSemiModal.h"
+#import "KRPopupView.h"
+#import "KRShareModalView.h"
 
 #define kProductPageViewHeight SCREEN_HEIGHT-kProductBottomViewHeight-NAV_BAR_HEIGHT
 
@@ -113,7 +115,8 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
 #pragma mark - Action
 
 - (void)shareBtnClick {
-    MLog(@"shareBtnClick");
+//    [KRPopupView showModal:[KRShareModalView sharedManager]];
+    [[KRPopupView sharedManager] showModal:[KRShareModalView sharedManager]];
 }
 
 #pragma mark - UIScrollViewDelegate

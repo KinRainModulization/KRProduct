@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1632E693200C567E002588B0 /* KRShareModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E692200C567E002588B0 /* KRShareModalView.m */; };
+		1632E696200C8BBF002588B0 /* KRPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E695200C8BBF002588B0 /* KRPopupView.m */; };
 		167A6EC6200318A500A47F74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EC5200318A500A47F74 /* ViewController.m */; };
 		167A6ECC20035BE900A47F74 /* KRProductBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ECB20035BE900A47F74 /* KRProductBottomView.m */; };
 		167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ED42004BF7800A47F74 /* KRProductBasicView.m */; };
@@ -56,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1632E691200C567E002588B0 /* KRShareModalView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRShareModalView.h; sourceTree = "<group>"; };
+		1632E692200C567E002588B0 /* KRShareModalView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRShareModalView.m; sourceTree = "<group>"; };
+		1632E694200C8BBF002588B0 /* KRPopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRPopupView.h; sourceTree = "<group>"; };
+		1632E695200C8BBF002588B0 /* KRPopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRPopupView.m; sourceTree = "<group>"; };
 		167A6EC4200318A500A47F74 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		167A6EC5200318A500A47F74 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		167A6ECA20035BE900A47F74 /* KRProductBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductBottomView.h; sourceTree = "<group>"; };
@@ -144,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1632E690200C5659002588B0 /* ShareModal */ = {
+			isa = PBXGroup;
+			children = (
+				1632E691200C567E002588B0 /* KRShareModalView.h */,
+				1632E692200C567E002588B0 /* KRShareModalView.m */,
+			);
+			path = ShareModal;
+			sourceTree = "<group>";
+		};
 		167A6EDD2006F2A300A47F74 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +256,9 @@
 				1683E8F31FFF159C00D97BE9 /* AppDelegate.m */,
 				167A6EC4200318A500A47F74 /* ViewController.h */,
 				167A6EC5200318A500A47F74 /* ViewController.m */,
+				1632E694200C8BBF002588B0 /* KRPopupView.h */,
+				1632E695200C8BBF002588B0 /* KRPopupView.m */,
+				1632E690200C5659002588B0 /* ShareModal */,
 				1683E94A1FFF891300D97BE9 /* TYPagerController */,
 				1683E8FB1FFF159C00D97BE9 /* Assets.xcassets */,
 				1683E8FD1FFF159C00D97BE9 /* LaunchScreen.storyboard */,
@@ -670,10 +688,12 @@
 				1683E95C1FFF891300D97BE9 /* TYTabPagerBar.m in Sources */,
 				167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */,
 				1683E9611FFF891300D97BE9 /* TYPagerController.m in Sources */,
+				1632E696200C8BBF002588B0 /* KRPopupView.m in Sources */,
 				167A6EE72007006700A47F74 /* KRCommentImageView.m in Sources */,
 				167A6EEA20070FC200A47F74 /* KRProductDetailModel.m in Sources */,
 				1683E9021FFF159C00D97BE9 /* main.m in Sources */,
 				167A6EEE2008A30800A47F74 /* KRGoodsImageCell.m in Sources */,
+				1632E693200C567E002588B0 /* KRShareModalView.m in Sources */,
 				1683E93F1FFF1D6400D97BE9 /* KRStoreListController.m in Sources */,
 				1683E95D1FFF891300D97BE9 /* TYTabPagerBarCell.m in Sources */,
 				1683E9381FFF1CCA00D97BE9 /* KRStoreHomeController.m in Sources */,
