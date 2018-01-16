@@ -1,5 +1,5 @@
 //
-//  KRStoreHomeController.h
+//  KRStoreDetailController.h
 //  KRProduct
 //
 //  Created by LX on 2018/1/5.
@@ -8,6 +8,6 @@
 
 #import <KRPublishLibrary/BaseViewController.h>
 
-@interface KRStoreHomeController : BaseViewController
+@interface KRStoreDetailController : BaseViewController
 
 @end
