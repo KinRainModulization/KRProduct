@@ -78,7 +78,6 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
     [pageScrollView addSubview:productListView];
     
     KRStoreDetailView *storeDetailView = [[KRStoreDetailView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, kStorePageViewHeight)];
-    storeDetailView.backgroundColor = [UIColor blueColor];
     [pageScrollView addSubview:storeDetailView];
 }
 
@@ -119,6 +118,7 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
         fromIndex = MIN(_countOfPagerItems-1, toIndex +1);
         progress = 1.0 - progress;
     }
+
     [_tabBar scrollToItemFromIndex:fromIndex toIndex:toIndex progress:progress];
 }
 
@@ -126,9 +126,9 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
     _preOffsetX = scrollView.contentOffset.x;
 }
 
-- (void)scrollViewWillScrollToView:(UIScrollView *)scrollView animate:(BOOL)animate {
-    _preOffsetX = scrollView.contentOffset.x;
-}
+//- (void)scrollViewWillScrollToView:(UIScrollView *)scrollView animate:(BOOL)animate {
+//    _preOffsetX = scrollView.contentOffset.x;
+//}
 
 #pragma mark - TYTabPagerBarDataSource
 
@@ -145,7 +145,7 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
 #pragma mark - TYTabPagerBarDelegate
 
 - (CGFloat)pagerTabBar:(TYTabPagerBar *)pagerTabBar widthForItemAtIndex:(NSInteger)index {
-    NSString *title = self.pages[index];
+//    NSString *title = self.pages[index];
 //    [pagerTabBar cellWidthForTitle:title]
     return 65;
 }

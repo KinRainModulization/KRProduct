@@ -98,7 +98,6 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
     _productBasicView = productBasicView;
     [pageScrollView addSubview:productBasicView];
     
-    
     KRProductDetailView *productDetailView = [[KRProductDetailView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, kProductPageViewHeight)];
     _productDetailView = productDetailView;
     _productDetailView.images = @[@"imgURL",@"imgURL",@"imgURL",@"imgURL"];

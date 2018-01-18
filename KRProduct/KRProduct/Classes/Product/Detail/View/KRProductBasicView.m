@@ -8,11 +8,12 @@
 
 #import "KRProductBasicView.h"
 #import <EllipsePageControl.h>
-#import "KRGoodsImageCell.h"
+#import "KRBannerImageCell.h"
 #import <KRCustomPriceView.h>
 #import <KRArrowIconRowView.h>
 #import "KRCommentCell.h"
 #import "KRProductDetailModel.h"
+#import "KRChainStoreCell.h"
 
 #define kGoodsImgWidth SCREEN_WIDTH
 #define kGoodsBannerHeight 10+kGoodsImgWidth+20
@@ -29,6 +30,7 @@ typedef enum {
 
 @property (nonatomic, strong) UIScrollView *basicScrollView;
 @property (nonatomic, strong) UIView *contentView;
+
 @property (nonatomic, strong) UICollectionView *goodsImgCollectionView;
 @property (nonatomic, strong) EllipsePageControl *pageControl;
 @property (nonatomic, strong) UILabel *goodsNameLabel;
@@ -45,13 +47,8 @@ typedef enum {
 
 @property (nonatomic, strong) KRArrowIconRowView *storeHeadView;
 @property (nonatomic, strong) UIButton *storeBtn;
-@property (nonatomic, strong) UILabel *storeNameLabel;
-@property (nonatomic, strong) UILabel *storeAddressLabel;
-@property (nonatomic, strong) UILabel *storeDistanceLabel;
-@property (nonatomic, strong) UILabel *storeScoreLabel;
-@property (nonatomic, strong) UIButton *storeHotlineBtn;
+@property (nonatomic, strong) KRChainStoreCell *storeView;
 
-//@property (nonatomic, strong) UIView *detailPullDownView;
 @property (nonatomic, strong) UIView *basicPullUpView;
 @property (nonatomic, strong) UILabel *basicPullUpLabel;
 @property (nonatomic, strong) UIImageView *basicPullUpImgView;
@@ -75,7 +72,6 @@ typedef enum {
     
     [self addSubview:self.basicScrollView];
     [_basicScrollView addSubview:self.contentView];
-//    [_contentView addSubview:self.pageFlowView];
     [_contentView addSubview:self.goodsImgCollectionView];
     [_contentView addSubview:self.pageControl];
     [_contentView addSubview:self.goodsNameLabel];
@@ -100,18 +96,7 @@ typedef enum {
     UIView *storeBottomLineView = [self createGrayLineView];
     [_storeHeadView addSubview:storeBottomLineView];
     [_contentView addSubview:self.storeBtn];
-    [_storeBtn addSubview:self.storeNameLabel];
-    [_storeBtn addSubview:self.storeAddressLabel];
-    UIImageView *storeDistanceImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_located"]];
-    [_storeBtn addSubview:storeDistanceImgView];
-    [_storeBtn addSubview:self.storeDistanceLabel];
-    UIImageView *storeScoreImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ic_rated_score"]];
-    [_storeBtn addSubview:storeScoreImgView];
-    [_storeBtn addSubview:self.storeScoreLabel];
-    UIView *storeLineView = [self createGrayLineView];
-    [_storeBtn addSubview:storeLineView];
-    [_storeBtn addSubview:self.storeHotlineBtn];
-    
+    [_storeBtn addSubview:self.storeView];
     [_contentView addSubview:self.basicPullUpView];
     UIView *leftLineView = [[UIView alloc] init];
     leftLineView.backgroundColor = RGB(230, 230, 230);
@@ -231,40 +216,8 @@ typedef enum {
         make.leading.trailing.equalTo(_contentView);
         make.height.mas_equalTo(90);
     }];
-    [_storeNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_storeBtn).offset(15);
-        make.leading.equalTo(_storeBtn).offset(12);
-        make.trailing.equalTo(storeLineView.mas_leading);
-    }];
-    [_storeAddressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_storeNameLabel.mas_bottom).offset(10);
-        make.leading.trailing.equalTo(_storeNameLabel);
-    }];
-    [storeDistanceImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(_storeBtn).offset(12);
-        make.bottom.equalTo(_storeBtn).offset(-13.5);
-    }];
-    [_storeDistanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(storeDistanceImgView.mas_trailing).offset(6);
-        make.bottom.equalTo(storeDistanceImgView);
-    }];
-    [storeScoreImgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(_storeDistanceLabel.mas_trailing).offset(12);
-        make.bottom.equalTo(storeDistanceImgView);
-    }];
-    [_storeScoreLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(storeScoreImgView.mas_trailing).offset(6);
-        make.bottom.equalTo(storeDistanceImgView);
-    }];
-    [storeLineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_storeBtn).offset(14);
-        make.trailing.equalTo(_storeBtn).offset(-64);
-        make.bottom.equalTo(_storeBtn).offset(-14);
-        make.width.mas_equalTo(0.5);
-    }];
-    [_storeHotlineBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.bottom.trailing.equalTo(_storeBtn);
-        make.width.mas_equalTo(64);
+    [_storeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_storeBtn);
     }];
     [_basicPullUpView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_storeBtn.mas_bottom);
@@ -309,6 +262,12 @@ typedef enum {
     }];
 }
 
+#pragma mark - Action
+
+- (void)storeHotlineButtonClick {
+    MLog(@"storeHotlineButtonClick");
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -334,8 +293,6 @@ typedef enum {
     
 }
 
-#pragma mark - UICollectionViewDelegate
-
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -343,7 +300,7 @@ typedef enum {
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    KRGoodsImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGoodsImageCellIdentifier forIndexPath:indexPath];
+    KRBannerImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kGoodsImageCellIdentifier forIndexPath:indexPath];
     return cell;
 }
 
@@ -385,7 +342,7 @@ typedef enum {
         _goodsImgCollectionView.pagingEnabled = YES;
         _goodsImgCollectionView.dataSource = self;
         _goodsImgCollectionView.delegate = self;
-        [_goodsImgCollectionView registerClass:[KRGoodsImageCell class] forCellWithReuseIdentifier:kGoodsImageCellIdentifier];
+        [_goodsImgCollectionView registerClass:[KRBannerImageCell class] forCellWithReuseIdentifier:kGoodsImageCellIdentifier];
     }
     return _goodsImgCollectionView;
 }
@@ -500,42 +457,15 @@ typedef enum {
     return _storeBtn;
 }
 
-- (UILabel *)storeNameLabel {
-    if (!_storeNameLabel) {
-        _storeNameLabel = [UILabel labelWithText:@"店铺名" textColor:FONT_COLOR_33 fontSize:14];
-        _storeNameLabel.numberOfLines = 1;
+- (KRChainStoreCell *)storeView {
+    if (!_storeView) {
+        _storeView = [[KRChainStoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        WEAK_SELF
+        _storeView.storeHotlineBlock = ^{
+            [weakSelf storeHotlineButtonClick];
+        };
     }
-    return _storeNameLabel;
-}
-
-- (UILabel *)storeAddressLabel {
-    if (!_storeAddressLabel) {
-        _storeAddressLabel = [UILabel labelWithText:@"店铺地址" textColor:FONT_COLOR_99 fontSize:12];
-        _storeAddressLabel.numberOfLines = 1;
-    }
-    return _storeAddressLabel;
-}
-
-- (UILabel *)storeDistanceLabel {
-    if (!_storeDistanceLabel) {
-        _storeDistanceLabel = [UILabel labelWithText:@"1.3km" textColor:FONT_COLOR_99 fontSize:12];
-    }
-    return _storeDistanceLabel;
-}
-
-- (UILabel *)storeScoreLabel {
-    if (!_storeScoreLabel) {
-        _storeScoreLabel = [UILabel labelWithText:@"评分" textColor:FONT_COLOR_99 fontSize:12];
-    }
-    return _storeScoreLabel;
-}
-
-- (UIButton *)storeHotlineBtn {
-    if (!_storeHotlineBtn) {
-        _storeHotlineBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_storeHotlineBtn setImage:[UIImage imageNamed:@"phone_call"] forState:UIControlStateNormal];
-    }
-    return _storeHotlineBtn;
+    return _storeView;
 }
 
 - (UIView *)basicPullUpView {

@@ -13,13 +13,21 @@
 		1632E6A4200D99D2002588B0 /* KRProductListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E6A3200D99D2002588B0 /* KRProductListView.m */; };
 		1632E6A7200D9A16002588B0 /* KRStoreDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E6A6200D9A16002588B0 /* KRStoreDetailView.m */; };
 		1632E6AB200D9F75002588B0 /* KRSortHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E6AA200D9F75002588B0 /* KRSortHeaderView.m */; };
+		1632E7AA201036DF002588B0 /* KRVisagisteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7A9201036DF002588B0 /* KRVisagisteCell.m */; };
+		1632E7AD20107053002588B0 /* KRStoreListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7AC20107053002588B0 /* KRStoreListView.m */; };
+		1632E7B020107191002588B0 /* KRStoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7AF20107191002588B0 /* KRStoreListCell.m */; };
+		1632E7B720108131002588B0 /* KRChainStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7B620108131002588B0 /* KRChainStoreController.m */; };
+		1632E7BB2010815E002588B0 /* KRChainStoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7BA2010815E002588B0 /* KRChainStoreView.m */; };
+		1632E7BE2010818B002588B0 /* KRChainStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7BD2010818B002588B0 /* KRChainStoreCell.m */; };
+		1632E7C1201090B6002588B0 /* KRUserCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7C0201090B6002588B0 /* KRUserCommentController.m */; };
+		1632E7C420109133002588B0 /* KRUserCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7C320109133002588B0 /* KRUserCommentView.m */; };
 		167A6EC6200318A500A47F74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EC5200318A500A47F74 /* ViewController.m */; };
 		167A6ECC20035BE900A47F74 /* KRProductBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ECB20035BE900A47F74 /* KRProductBottomView.m */; };
 		167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ED42004BF7800A47F74 /* KRProductBasicView.m */; };
 		167A6EE42006F2FA00A47F74 /* KRCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EE32006F2FA00A47F74 /* KRCommentCell.m */; };
 		167A6EE72007006700A47F74 /* KRCommentImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EE62007006700A47F74 /* KRCommentImageView.m */; };
 		167A6EEA20070FC200A47F74 /* KRProductDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EE920070FC200A47F74 /* KRProductDetailModel.m */; };
-		167A6EEE2008A30800A47F74 /* KRGoodsImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EED2008A30800A47F74 /* KRGoodsImageCell.m */; };
+		167A6EEE2008A30800A47F74 /* KRBannerImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EED2008A30800A47F74 /* KRBannerImageCell.m */; };
 		167A6EF32008BCD300A47F74 /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EF22008BCD300A47F74 /* UIViewController+KNSemiModal.m */; };
 		167A6EF6200A0B1D00A47F74 /* KRProductDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EF5200A0B1C00A47F74 /* KRProductDetailView.m */; };
 		1683E8F41FFF159C00D97BE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1683E8F31FFF159C00D97BE9 /* AppDelegate.m */; };
@@ -73,6 +81,22 @@
 		1632E6A6200D9A16002588B0 /* KRStoreDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRStoreDetailView.m; sourceTree = "<group>"; };
 		1632E6A9200D9F75002588B0 /* KRSortHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRSortHeaderView.h; sourceTree = "<group>"; };
 		1632E6AA200D9F75002588B0 /* KRSortHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSortHeaderView.m; sourceTree = "<group>"; };
+		1632E7A8201036DF002588B0 /* KRVisagisteCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRVisagisteCell.h; sourceTree = "<group>"; };
+		1632E7A9201036DF002588B0 /* KRVisagisteCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRVisagisteCell.m; sourceTree = "<group>"; };
+		1632E7AB20107053002588B0 /* KRStoreListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRStoreListView.h; sourceTree = "<group>"; };
+		1632E7AC20107053002588B0 /* KRStoreListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRStoreListView.m; sourceTree = "<group>"; };
+		1632E7AE20107191002588B0 /* KRStoreListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRStoreListCell.h; sourceTree = "<group>"; };
+		1632E7AF20107191002588B0 /* KRStoreListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRStoreListCell.m; sourceTree = "<group>"; };
+		1632E7B520108131002588B0 /* KRChainStoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRChainStoreController.h; sourceTree = "<group>"; };
+		1632E7B620108131002588B0 /* KRChainStoreController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRChainStoreController.m; sourceTree = "<group>"; };
+		1632E7B92010815E002588B0 /* KRChainStoreView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRChainStoreView.h; sourceTree = "<group>"; };
+		1632E7BA2010815E002588B0 /* KRChainStoreView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRChainStoreView.m; sourceTree = "<group>"; };
+		1632E7BC2010818B002588B0 /* KRChainStoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRChainStoreCell.h; sourceTree = "<group>"; };
+		1632E7BD2010818B002588B0 /* KRChainStoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRChainStoreCell.m; sourceTree = "<group>"; };
+		1632E7BF201090B6002588B0 /* KRUserCommentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRUserCommentController.h; sourceTree = "<group>"; };
+		1632E7C0201090B6002588B0 /* KRUserCommentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRUserCommentController.m; sourceTree = "<group>"; };
+		1632E7C220109132002588B0 /* KRUserCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRUserCommentView.h; sourceTree = "<group>"; };
+		1632E7C320109133002588B0 /* KRUserCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRUserCommentView.m; sourceTree = "<group>"; };
 		167A6EC4200318A500A47F74 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		167A6EC5200318A500A47F74 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		167A6ECA20035BE900A47F74 /* KRProductBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductBottomView.h; sourceTree = "<group>"; };
@@ -85,8 +109,8 @@
 		167A6EE62007006700A47F74 /* KRCommentImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRCommentImageView.m; sourceTree = "<group>"; };
 		167A6EE820070FC200A47F74 /* KRProductDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductDetailModel.h; sourceTree = "<group>"; };
 		167A6EE920070FC200A47F74 /* KRProductDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRProductDetailModel.m; sourceTree = "<group>"; };
-		167A6EEC2008A30800A47F74 /* KRGoodsImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRGoodsImageCell.h; sourceTree = "<group>"; };
-		167A6EED2008A30800A47F74 /* KRGoodsImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRGoodsImageCell.m; sourceTree = "<group>"; };
+		167A6EEC2008A30800A47F74 /* KRBannerImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRBannerImageCell.h; sourceTree = "<group>"; };
+		167A6EED2008A30800A47F74 /* KRBannerImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRBannerImageCell.m; sourceTree = "<group>"; };
 		167A6EF12008BCD300A47F74 /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
 		167A6EF22008BCD300A47F74 /* UIViewController+KNSemiModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KNSemiModal.m"; sourceTree = "<group>"; };
 		167A6EF4200A0B1C00A47F74 /* KRProductDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductDetailView.h; sourceTree = "<group>"; };
@@ -220,6 +244,53 @@
 		1632E6A8200D9A7D002588B0 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1632E7A8201036DF002588B0 /* KRVisagisteCell.h */,
+				1632E7A9201036DF002588B0 /* KRVisagisteCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1632E7B12010803B002588B0 /* ChainStoreList */ = {
+			isa = PBXGroup;
+			children = (
+				1632E7B22010803B002588B0 /* Controller */,
+				1632E7B32010803B002588B0 /* Model */,
+				1632E7B42010803B002588B0 /* View */,
+			);
+			path = ChainStoreList;
+			sourceTree = "<group>";
+		};
+		1632E7B22010803B002588B0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1632E7B520108131002588B0 /* KRChainStoreController.h */,
+				1632E7B620108131002588B0 /* KRChainStoreController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1632E7B32010803B002588B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1632E7B42010803B002588B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1632E7B820108145002588B0 /* Cell */,
+				1632E7B92010815E002588B0 /* KRChainStoreView.h */,
+				1632E7BA2010815E002588B0 /* KRChainStoreView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1632E7B820108145002588B0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1632E7BC2010818B002588B0 /* KRChainStoreCell.h */,
+				1632E7BD2010818B002588B0 /* KRChainStoreCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -237,6 +308,8 @@
 		167A6EDE2006F2A300A47F74 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1632E7BF201090B6002588B0 /* KRUserCommentController.h */,
+				1632E7C0201090B6002588B0 /* KRUserCommentController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				167A6EE12006F2A300A47F74 /* Cell */,
+				1632E7C220109132002588B0 /* KRUserCommentView.h */,
+				1632E7C320109133002588B0 /* KRUserCommentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,6 +345,8 @@
 		167A6EEB200761EB00A47F74 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				1632E7AE20107191002588B0 /* KRStoreListCell.h */,
+				1632E7AF20107191002588B0 /* KRStoreListCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -417,6 +494,7 @@
 		1683E92A1FFF1B6600D97BE9 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				1632E7B12010803B002588B0 /* ChainStoreList */,
 				1632E69B200D9092002588B0 /* StoreDetail */,
 				1683E9391FFF1D4D00D97BE9 /* StoreList */,
 			);
@@ -460,6 +538,8 @@
 			isa = PBXGroup;
 			children = (
 				167A6EEB200761EB00A47F74 /* Cell */,
+				1632E7AB20107053002588B0 /* KRStoreListView.h */,
+				1632E7AC20107053002588B0 /* KRStoreListView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -469,8 +549,8 @@
 			children = (
 				1683E9471FFF845400D97BE9 /* KRGoodsAttributeCell.h */,
 				1683E9481FFF845400D97BE9 /* KRGoodsAttributeCell.m */,
-				167A6EEC2008A30800A47F74 /* KRGoodsImageCell.h */,
-				167A6EED2008A30800A47F74 /* KRGoodsImageCell.m */,
+				167A6EEC2008A30800A47F74 /* KRBannerImageCell.h */,
+				167A6EED2008A30800A47F74 /* KRBannerImageCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -714,26 +794,34 @@
 				167A6EE42006F2FA00A47F74 /* KRCommentCell.m in Sources */,
 				1683E9601FFF891300D97BE9 /* TYTabPagerView.m in Sources */,
 				167A6EF6200A0B1D00A47F74 /* KRProductDetailView.m in Sources */,
+				1632E7B720108131002588B0 /* KRChainStoreController.m in Sources */,
 				1683E9441FFF1FE000D97BE9 /* KRProductSelectAttributesView.m in Sources */,
+				1632E7AD20107053002588B0 /* KRStoreListView.m in Sources */,
 				1683E9631FFF891300D97BE9 /* TYPagerViewLayout.m in Sources */,
 				1683E95C1FFF891300D97BE9 /* TYTabPagerBar.m in Sources */,
 				167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */,
+				1632E7BB2010815E002588B0 /* KRChainStoreView.m in Sources */,
 				1683E9611FFF891300D97BE9 /* TYPagerController.m in Sources */,
 				1632E69A200CB4DC002588B0 /* KRPopupView.m in Sources */,
 				167A6EE72007006700A47F74 /* KRCommentImageView.m in Sources */,
 				167A6EEA20070FC200A47F74 /* KRProductDetailModel.m in Sources */,
 				1683E9021FFF159C00D97BE9 /* main.m in Sources */,
+				1632E7C420109133002588B0 /* KRUserCommentView.m in Sources */,
 				1632E6AB200D9F75002588B0 /* KRSortHeaderView.m in Sources */,
-				167A6EEE2008A30800A47F74 /* KRGoodsImageCell.m in Sources */,
+				167A6EEE2008A30800A47F74 /* KRBannerImageCell.m in Sources */,
+				1632E7C1201090B6002588B0 /* KRUserCommentController.m in Sources */,
 				1632E693200C567E002588B0 /* KRShareModalView.m in Sources */,
+				1632E7B020107191002588B0 /* KRStoreListCell.m in Sources */,
 				1632E6A4200D99D2002588B0 /* KRProductListView.m in Sources */,
 				1683E93F1FFF1D6400D97BE9 /* KRStoreListController.m in Sources */,
 				1683E95D1FFF891300D97BE9 /* TYTabPagerBarCell.m in Sources */,
 				1683E9621FFF891300D97BE9 /* TYPagerView.m in Sources */,
 				167A6ECC20035BE900A47F74 /* KRProductBottomView.m in Sources */,
+				1632E7AA201036DF002588B0 /* KRVisagisteCell.m in Sources */,
 				167A6EF32008BCD300A47F74 /* UIViewController+KNSemiModal.m in Sources */,
 				1632E6A1200D9092002588B0 /* KRStoreDetailController.m in Sources */,
 				1683E9351FFF1C7300D97BE9 /* KRProductController.m in Sources */,
+				1632E7BE2010818B002588B0 /* KRChainStoreCell.m in Sources */,
 				1683E9491FFF845500D97BE9 /* KRGoodsAttributeCell.m in Sources */,
 				1683E8F41FFF159C00D97BE9 /* AppDelegate.m in Sources */,
 				1632E6A7200D9A16002588B0 /* KRStoreDetailView.m in Sources */,

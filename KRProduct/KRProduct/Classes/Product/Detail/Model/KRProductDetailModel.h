@@ -10,7 +10,7 @@
 
 @interface KRProductDetailModel : NSObject
 
-@property(nonatomic,copy)NSArray *messageSmallPics;
+@property(nonatomic,strong)NSArray *messageSmallPics;
 
 // 评价内容行数 默认不限制行数
 @property (nonatomic, assign) NSInteger numberOfLine;

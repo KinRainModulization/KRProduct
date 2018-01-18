@@ -7,8 +7,11 @@
 //
 
 #import "KRStoreListController.h"
+#import "KRStoreListView.h"
 
 @interface KRStoreListController ()
+
+@property (nonatomic, strong) KRStoreListView *storeListView;
 
 @end
 
@@ -18,7 +21,15 @@
     [super viewDidLoad];
     
     self.title = @"所有店铺";
+    [self.view addSubview:self.storeListView];
     
+    self.storeListView.stores = @[@"data",@"data",@"data",@"data"];
 }
 
+- (KRStoreListView *)storeListView {
+    if (!_storeListView) {
+        _storeListView = [[KRStoreListView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    }
+    return _storeListView;
+}
 @end
