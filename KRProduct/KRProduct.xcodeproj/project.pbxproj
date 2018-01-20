@@ -21,6 +21,7 @@
 		1632E7BE2010818B002588B0 /* KRChainStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7BD2010818B002588B0 /* KRChainStoreCell.m */; };
 		1632E7C1201090B6002588B0 /* KRUserCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7C0201090B6002588B0 /* KRUserCommentController.m */; };
 		1632E7C420109133002588B0 /* KRUserCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7C320109133002588B0 /* KRUserCommentView.m */; };
+		1632E7D9201184F5002588B0 /* KRSecondaryCategoriesVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1632E7D8201184F4002588B0 /* KRSecondaryCategoriesVC.m */; };
 		167A6EC6200318A500A47F74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6EC5200318A500A47F74 /* ViewController.m */; };
 		167A6ECC20035BE900A47F74 /* KRProductBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ECB20035BE900A47F74 /* KRProductBottomView.m */; };
 		167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 167A6ED42004BF7800A47F74 /* KRProductBasicView.m */; };
@@ -97,6 +98,8 @@
 		1632E7C0201090B6002588B0 /* KRUserCommentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRUserCommentController.m; sourceTree = "<group>"; };
 		1632E7C220109132002588B0 /* KRUserCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRUserCommentView.h; sourceTree = "<group>"; };
 		1632E7C320109133002588B0 /* KRUserCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRUserCommentView.m; sourceTree = "<group>"; };
+		1632E7D7201184F4002588B0 /* KRSecondaryCategoriesVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRSecondaryCategoriesVC.h; sourceTree = "<group>"; };
+		1632E7D8201184F4002588B0 /* KRSecondaryCategoriesVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KRSecondaryCategoriesVC.m; sourceTree = "<group>"; };
 		167A6EC4200318A500A47F74 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		167A6EC5200318A500A47F74 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		167A6ECA20035BE900A47F74 /* KRProductBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KRProductBottomView.h; sourceTree = "<group>"; };
@@ -295,6 +298,39 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		1632E7D3201184C2002588B0 /* SecondaryCategories */ = {
+			isa = PBXGroup;
+			children = (
+				1632E7D4201184C2002588B0 /* Controller */,
+				1632E7D5201184C2002588B0 /* Model */,
+				1632E7D6201184C2002588B0 /* View */,
+			);
+			path = SecondaryCategories;
+			sourceTree = "<group>";
+		};
+		1632E7D4201184C2002588B0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1632E7D7201184F4002588B0 /* KRSecondaryCategoriesVC.h */,
+				1632E7D8201184F4002588B0 /* KRSecondaryCategoriesVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		1632E7D5201184C2002588B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1632E7D6201184C2002588B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		167A6EDD2006F2A300A47F74 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +477,7 @@
 		1683E9251FFF1B6600D97BE9 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				1632E7D3201184C2002588B0 /* SecondaryCategories */,
 				167A6EDD2006F2A300A47F74 /* Comment */,
 				1683E9261FFF1B6600D97BE9 /* Detail */,
 			);
@@ -801,6 +838,7 @@
 				1683E95C1FFF891300D97BE9 /* TYTabPagerBar.m in Sources */,
 				167A6ED52004BF7900A47F74 /* KRProductBasicView.m in Sources */,
 				1632E7BB2010815E002588B0 /* KRChainStoreView.m in Sources */,
+				1632E7D9201184F5002588B0 /* KRSecondaryCategoriesVC.m in Sources */,
 				1683E9611FFF891300D97BE9 /* TYPagerController.m in Sources */,
 				1632E69A200CB4DC002588B0 /* KRPopupView.m in Sources */,
 				167A6EE72007006700A47F74 /* KRCommentImageView.m in Sources */,

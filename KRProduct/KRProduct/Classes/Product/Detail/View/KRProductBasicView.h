@@ -12,6 +12,16 @@
 
 @protocol KRProductBasicViewDelegate <NSObject>
 
+- (void)productSelectAttributes:(KRProductBasicView *)productBasicView;
+
+- (void)userCommentClick:(KRProductBasicView *)productBasicView;
+
+- (void)chainStoreClick:(KRProductBasicView *)productBasicView;
+
+- (void)storeDetailClick:(KRProductBasicView *)productBasicView;
+
+- (void)storeHotlineClick:(KRProductBasicView *)productBasicView;
+
 - (void)productBasicViewPullUp:(KRProductBasicView *)productBasicView;
 
 @end

@@ -58,8 +58,7 @@ static NSString *kVisagisteCellIdentifier = @"kVisagisteCellIdentifier";
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self prepareUI];
-        
-//        [self.storeImgCollectionView setContentOffset:CGPointMake(1, 0) animated:NO];
+        [self handleBlock];
     }
     return self;
 }
@@ -312,7 +311,27 @@ static NSString *kVisagisteCellIdentifier = @"kVisagisteCellIdentifier";
 #pragma mark - Action
 
 - (void)storeHotlineBtnClick {
-    
+    if ([_delegate respondsToSelector:@selector(storeHotlineClick:)]) {
+        [_delegate storeHotlineClick:self];
+    }
+}
+
+- (void)allCommentBtnClick {
+    if ([_delegate respondsToSelector:@selector(userCommentClick:)]) {
+        [_delegate userCommentClick:self];
+    }
+}
+
+- (void)handleBlock {
+    WEAK_SELF
+    _chainStoreView.rowDidClickBlock = ^{
+        if ([weakSelf.delegate respondsToSelector:@selector(chainStoreClick:)]) {
+            [weakSelf.delegate chainStoreClick:weakSelf];
+        }
+    };
+    _commentHeadView.rowDidClickBlock = ^{
+        [weakSelf allCommentBtnClick];
+    };
 }
 
 #pragma mark - UICollectionViewDataSource / Delegate
@@ -495,14 +514,14 @@ static NSString *kVisagisteCellIdentifier = @"kVisagisteCellIdentifier";
 
 - (KRArrowIconRowView *)chainStoreView {
     if (!_chainStoreView) {
-        _chainStoreView = [KRArrowIconRowView rowViewWithSize:CGSizeMake(SCREEN_WIDTH, 50) title:@"连锁店铺" subtitle:nil iconName:nil hiddenArrow:NO];
+        _chainStoreView = [KRArrowIconRowView rowViewWithTitle:@"连锁店铺" subtitle:nil iconName:nil hiddenArrow:NO];
     }
     return _chainStoreView;
 }
 
 - (KRArrowIconRowView *)commentHeadView {
     if (!_commentHeadView) {
-        _commentHeadView = [KRArrowIconRowView rowViewWithSize:CGSizeMake(SCREEN_WIDTH, 50) title:@"用户评价" subtitle:nil iconName:nil hiddenArrow:NO];
+        _commentHeadView = [KRArrowIconRowView rowViewWithTitle:@"用户评价" subtitle:nil iconName:nil hiddenArrow:NO];
     }
     return _commentHeadView;
 }
@@ -531,6 +550,7 @@ static NSString *kVisagisteCellIdentifier = @"kVisagisteCellIdentifier";
 - (UIButton *)allCommentBtn {
     if (!_allCommentBtn) {
         _allCommentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_allCommentBtn addTarget:self action:@selector(allCommentBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _allCommentBtn;
 }

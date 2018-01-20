@@ -28,7 +28,8 @@
 }
 
 - (void)prepareUI {
-    UIView *contentView = [[UIView alloc] init];
+    UIButton *contentView = [UIButton buttonWithType:UIButtonTypeCustom];
+    [contentView addTarget:self action:@selector(storeDetailClick) forControlEvents:UIControlEventTouchUpInside];
     contentView.backgroundColor = [UIColor whiteColor];
     [self addSubview:contentView];
     [contentView addSubview:self.storeNameLabel];
@@ -94,6 +95,12 @@
 }
 
 #pragma mark - Action
+
+- (void)storeDetailClick {
+    if (self.storeDetailBlock) {
+        self.storeDetailBlock();
+    }
+}
 
 - (void)hotlineButtonClick {
     self.storeHotlineBlock();

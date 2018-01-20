@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KRSortHeaderView.h"
 
 @interface KRProductListView : UIView
+
+@property (nonatomic, copy) void (^productSortBlock)(ProductSortType sortType);
+
+@property (nonatomic, copy) void (^productDetailBlock)(void);
 
 @end

@@ -33,12 +33,19 @@ static NSString *kStoreListCellIdentifier = @"kStoreListCellIdentifier";
     [self reloadData];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.storeDetailBlock) {
+        self.storeDetailBlock();
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.stores.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KRStoreListCell *cell = [tableView dequeueReusableCellWithIdentifier:kStoreListCellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

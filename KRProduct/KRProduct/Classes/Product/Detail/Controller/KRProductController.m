@@ -15,12 +15,15 @@
 #import "UIViewController+KNSemiModal.h"
 #import "KRPopupView.h"
 #import "KRShareModalView.h"
+#import "KRUserCommentController.h"
+#import "KRStoreDetailController.h"
+#import "KRChainStoreController.h"
 
 #define kProductPageViewHeight SCREEN_HEIGHT-kProductBottomViewHeight-NAV_BAR_HEIGHT
 
 static const CGFloat kProductBottomViewHeight = 47;
 
-@interface KRProductController () <UIScrollViewDelegate,TYTabPagerBarDataSource,TYTabPagerBarDelegate,KRProductBottomViewDelegate>
+@interface KRProductController () <UIScrollViewDelegate,TYTabPagerBarDataSource,TYTabPagerBarDelegate,KRProductBasicViewDelegate,KRProductBottomViewDelegate>
 
 @property (nonatomic, weak) TYTabPagerBar *tabBar;
 
@@ -91,10 +94,12 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
     pageScrollView.delegate = self;
     pageScrollView.pagingEnabled = YES;
     pageScrollView.showsHorizontalScrollIndicator = NO;
+    pageScrollView.bounces = NO;
     [self.view addSubview:pageScrollView];
     _pageScrollView = pageScrollView;
     
     KRProductBasicView *productBasicView = [[KRProductBasicView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kProductPageViewHeight)];
+    productBasicView.delegate = self;
     _productBasicView = productBasicView;
     [pageScrollView addSubview:productBasicView];
     
@@ -114,9 +119,60 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
 #pragma mark - Action
 
 - (void)shareBtnClick {
-//    [KRPopupView showModal:[KRShareModalView sharedManager]];
     [[KRPopupView sharedManager] showModal:[KRShareModalView sharedManager]];
 }
+
+- (void)productSelectAttributes:(KRProductBasicView *)productBasicView {
+    [self productSelectAttributes];
+}
+
+- (void)userCommentClick:(KRProductBasicView *)productBasicView {
+    [self.navigationController pushViewController:[[KRUserCommentController alloc] init] animated:YES];
+}
+
+- (void)chainStoreClick:(KRProductBasicView *)productBasicView {
+    [self.navigationController pushViewController:[[KRChainStoreController alloc] init] animated:YES];
+}
+
+- (void)storeDetailClick:(KRProductBasicView *)productBasicView {
+    [self.navigationController pushViewController:[[KRStoreDetailController alloc] init] animated:YES];
+}
+
+- (void)storeHotlineClick:(KRProductBasicView *)productBasicView {
+    MLog(@"storeHotlineClick");
+//    NSMutableString *str = [[NSMutableString alloc] initWithFormat:@"tel:%@",@"13956290011"];
+//    UIWebView *callWebview = [[UIWebView alloc] init];
+//    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+//    [self.view addSubview:callWebview];
+}
+
+- (void)productBasicViewPullUp:(KRProductBasicView *)productBasicView {
+    
+}
+
+- (void)storeClick:(KRProductBottomView *)productBottomView {
+    [self.navigationController pushViewController:[[KRStoreDetailController alloc] init] animated:YES];
+}
+
+- (void)shoppingCartClick:(KRProductBottomView *)productBottomView {
+    
+}
+
+- (void)orderClick:(KRProductBottomView *)productBottomView {
+    [self productSelectAttributes];
+}
+
+- (void)addShoppingCart:(KRProductBottomView *)productBottomView {
+    
+}
+
+- (void)productSelectAttributes {
+    [self presentSemiView:self.selectAttrsView withOptions:@{
+                                                             KNSemiModalOptionKeys.parentAlpha : @0.8,
+                                                             //                                                             KNSemiModalOptionKeys.backgroundView : bgView
+                                                             }];
+}
+
 
 #pragma mark - UIScrollViewDelegate
 
@@ -158,16 +214,6 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
 
 - (void)scrollViewWillScrollToView:(UIScrollView *)scrollView animate:(BOOL)animate {
     _preOffsetX = scrollView.contentOffset.x;
-}
-
-#pragma mark - KRProductBottomViewDelegate
-
-- (void)orderButtonClick:(KRProductBottomView *)productBottomView {
-    //test
-    [self presentSemiView:self.selectAttrsView withOptions:@{
-                                                             KNSemiModalOptionKeys.parentAlpha : @0.8,
-//                                                             KNSemiModalOptionKeys.backgroundView : bgView
-                                                             }];
 }
 
 #pragma mark - TYTabPagerBarDataSource

@@ -12,11 +12,11 @@
 
 @protocol KRProductBottomViewDelegate <NSObject>
 
-- (void)storeButtonClick:(KRProductBottomView *)productBottomView;
+- (void)storeClick:(KRProductBottomView *)productBottomView;
 
-- (void)shoppingCartButtonClick:(KRProductBottomView *)productBottomView;
+- (void)shoppingCartClick:(KRProductBottomView *)productBottomView;
 
-- (void)orderButtonClick:(KRProductBottomView *)productBottomView;
+- (void)orderClick:(KRProductBottomView *)productBottomView;
 
 - (void)addShoppingCart:(KRProductBottomView *)productBottomView;
 

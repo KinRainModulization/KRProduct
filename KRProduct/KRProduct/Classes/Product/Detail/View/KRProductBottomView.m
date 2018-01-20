@@ -77,20 +77,26 @@
 #pragma mark - Action
 
 - (void)storeBtnClick {
-    
+    if ([_delegate respondsToSelector:@selector(storeClick:)]) {
+        [_delegate storeClick:self];
+    }
 }
 
 - (void)shoppingCartBtnClick {
-    
+    if ([_delegate respondsToSelector:@selector(shoppingCartClick:)]) {
+        [_delegate shoppingCartClick:self];
+    }
 }
 
 - (void)addGoodsBtnClick {
-    
+    if ([_delegate respondsToSelector:@selector(addShoppingCart:)]) {
+        [_delegate addShoppingCart:self];
+    }
 }
 
 - (void)buyBtnClick {
-    if ([_delegate respondsToSelector:@selector(orderButtonClick:)]) {
-        [_delegate orderButtonClick:self];
+    if ([_delegate respondsToSelector:@selector(orderClick:)]) {
+        [_delegate orderClick:self];
     }
 }
 

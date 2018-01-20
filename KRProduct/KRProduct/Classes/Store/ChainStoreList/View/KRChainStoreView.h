@@ -14,4 +14,6 @@
 
 @property (nonatomic, copy) void (^storeHotlineBlock)(void);
 
+@property (nonatomic, copy) void (^storeDetailBlock)(void);
+
 @end

@@ -10,5 +10,7 @@
 
 @interface KRChainStoreCell : UITableViewCell
 
+@property (nonatomic, copy) void (^storeDetailBlock)(void);
+
 @property (nonatomic, copy) void (^storeHotlineBlock)(void);
 @end

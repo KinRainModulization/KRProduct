@@ -10,10 +10,13 @@
 #import "TYTabPagerBar.h"
 #import "KRProductListView.h"
 #import "KRStoreDetailView.h"
+#import "KRProductController.h"
+#import "KRChainStoreController.h"
+#import "KRUserCommentController.h"
 
 #define kStorePageViewHeight SCREEN_HEIGHT-NAV_BAR_HEIGHT
 
-@interface KRStoreDetailController () <TYTabPagerBarDataSource,TYTabPagerBarDelegate,UIScrollViewDelegate>
+@interface KRStoreDetailController () <TYTabPagerBarDataSource,TYTabPagerBarDelegate,UIScrollViewDelegate,KRStoreDetailViewDelegate>
 
 @property (nonatomic, weak) TYTabPagerBar *tabBar;
 @property (nonatomic, weak) UIScrollView *pageScrollView;
@@ -75,9 +78,17 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
     _pageScrollView = pageScrollView;
     
     KRProductListView *productListView = [[KRProductListView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kStorePageViewHeight)];
+    WEAK_SELF
+    productListView.productDetailBlock = ^{
+        [weakSelf productDetailClick];
+    };
+    productListView.productSortBlock = ^(ProductSortType sortType) {
+        [weakSelf productSortWithType:sortType];
+    };
     [pageScrollView addSubview:productListView];
     
     KRStoreDetailView *storeDetailView = [[KRStoreDetailView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, kStorePageViewHeight)];
+    storeDetailView.delegate = self;
     [pageScrollView addSubview:storeDetailView];
 }
 
@@ -85,6 +96,26 @@ typedef NS_ENUM(NSUInteger, PagerScrollingDirection) {
 
 - (void)shoppingCartBtnClick {
     MLog(@"shoppingCartBtnClick");
+}
+
+- (void)productDetailClick {
+    [self.navigationController pushViewController:[[KRProductController alloc] init] animated:YES];
+}
+
+- (void)productSortWithType:(ProductSortType)sortType {
+    MLog(@"sortType=%d",sortType);
+}
+
+- (void)storeHotlineClick:(KRStoreDetailView *)storeDetailView {
+    MLog(@"storeHotlineClick");
+}
+
+- (void)chainStoreClick:(KRStoreDetailView *)storeDetailView {
+    [self.navigationController pushViewController:[[KRChainStoreController alloc] init] animated:YES];
+}
+
+- (void)userCommentClick:(KRStoreDetailView *)storeDetailView {
+    [self.navigationController pushViewController:[[KRUserCommentController alloc] init] animated:YES];
 }
 
 #pragma mark - UIScrollViewDelegate

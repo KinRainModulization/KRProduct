@@ -7,7 +7,6 @@
 //
 
 #import "KRProductListView.h"
-#import "KRSortHeaderView.h"
 #import <KRProductCell.h>
 
 static const CGFloat kSortHeaderHeight = 40;
@@ -34,13 +33,11 @@ static NSString *kProductCellIdentifier = @"kProductCellIdentifier";
     [self addSubview:self.productTableView];
 }
 
-#pragma mark - Action
-
-- (void)sortBtnClick:(ProductSortType)sortType {
-    
-}
-
 #pragma mark - UITableViewDataSource/Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.productDetailBlock();
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
@@ -58,6 +55,10 @@ static NSString *kProductCellIdentifier = @"kProductCellIdentifier";
 }
 
 #pragma mark - Setter/Getter
+- (void)setProductSortBlock:(void (^)(ProductSortType))productSortBlock {
+    _productSortBlock = productSortBlock;
+    self.sortHeaderView.productSortBlock = productSortBlock;
+}
 
 - (KRSortHeaderView *)sortHeaderView {
     if (!_sortHeaderView) {

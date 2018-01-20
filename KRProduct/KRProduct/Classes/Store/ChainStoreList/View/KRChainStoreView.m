@@ -40,6 +40,7 @@ static NSString *kChainStoreCellIdentifier = @"kChainStoreCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     KRChainStoreCell *cell = [tableView dequeueReusableCellWithIdentifier:kChainStoreCellIdentifier forIndexPath:indexPath];
     cell.storeHotlineBlock = self.storeHotlineBlock;
+    cell.storeDetailBlock = self.storeDetailBlock;
     return cell;
 }
 

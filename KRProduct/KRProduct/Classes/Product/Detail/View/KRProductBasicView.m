@@ -46,7 +46,6 @@ typedef enum {
 @property (nonatomic, strong) UILabel *allCommentLabel;
 
 @property (nonatomic, strong) KRArrowIconRowView *storeHeadView;
-@property (nonatomic, strong) UIButton *storeBtn;
 @property (nonatomic, strong) KRChainStoreCell *storeView;
 
 @property (nonatomic, strong) UIView *basicPullUpView;
@@ -63,6 +62,7 @@ typedef enum {
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self prepareUI];
+        [self handleBlock];
     }
     return self;
 }
@@ -95,8 +95,7 @@ typedef enum {
     [_contentView addSubview:self.storeHeadView];
     UIView *storeBottomLineView = [self createGrayLineView];
     [_storeHeadView addSubview:storeBottomLineView];
-    [_contentView addSubview:self.storeBtn];
-    [_storeBtn addSubview:self.storeView];
+    [_contentView addSubview:self.storeView];
     [_contentView addSubview:self.basicPullUpView];
     UIView *leftLineView = [[UIView alloc] init];
     leftLineView.backgroundColor = RGB(230, 230, 230);
@@ -211,16 +210,13 @@ typedef enum {
         make.trailing.equalTo(_storeHeadView).offset(-12);
         make.height.mas_equalTo(0.5);
     }];
-    [_storeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_storeView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_storeHeadView.mas_bottom);
         make.leading.trailing.equalTo(_contentView);
         make.height.mas_equalTo(90);
     }];
-    [_storeView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_storeBtn);
-    }];
     [_basicPullUpView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_storeBtn.mas_bottom);
+        make.top.equalTo(_storeView.mas_bottom);
         make.leading.trailing.equalTo(_contentView);
         make.height.mas_equalTo(kBasicPullUpHeight);
     }];
@@ -264,8 +260,37 @@ typedef enum {
 
 #pragma mark - Action
 
-- (void)storeHotlineButtonClick {
-    MLog(@"storeHotlineButtonClick");
+- (void)allCommentBtnClick {
+    if ([self.delegate respondsToSelector:@selector(userCommentClick:)]) {
+        [self.delegate userCommentClick:self];
+    }
+}
+
+- (void)handleBlock {
+    WEAK_SELF
+    _attrsSelectView.rowDidClickBlock = ^{
+        if ([weakSelf.delegate respondsToSelector:@selector(productSelectAttributes:)]) {
+            [weakSelf.delegate productSelectAttributes:weakSelf];
+        }
+    };
+    _commentHeadView.rowDidClickBlock = ^{
+        [weakSelf allCommentBtnClick];
+    };
+    _storeHeadView.rowDidClickBlock = ^{
+        if ([weakSelf.delegate respondsToSelector:@selector(chainStoreClick:)]) {
+            [weakSelf.delegate chainStoreClick:weakSelf];
+        }
+    };
+    _storeView.storeHotlineBlock = ^{
+        if ([weakSelf.delegate respondsToSelector:@selector(storeHotlineClick:)]) {
+            [weakSelf.delegate storeHotlineClick:weakSelf];
+        }
+    };
+    _storeView.storeDetailBlock = ^{
+        if ([weakSelf.delegate respondsToSelector:@selector(storeDetailClick:)]) {
+            [weakSelf.delegate storeDetailClick:weakSelf];
+        }
+    };
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -392,14 +417,14 @@ typedef enum {
 
 - (KRArrowIconRowView *)attrsSelectView {
     if (!_attrsSelectView) {
-        _attrsSelectView = [KRArrowIconRowView rowViewWithSize:CGSizeMake(SCREEN_WIDTH, 50) title:@"选择规格" subtitle:nil iconName:nil hiddenArrow:NO];
+        _attrsSelectView = [KRArrowIconRowView rowViewWithTitle:@"选择规格" subtitle:nil iconName:nil hiddenArrow:NO];
     }
     return _attrsSelectView;
 }
 
 - (KRArrowIconRowView *)commentHeadView {
     if (!_commentHeadView) {
-        _commentHeadView = [KRArrowIconRowView rowViewWithSize:CGSizeMake(SCREEN_WIDTH, 50) title:@"用户评价" subtitle:nil iconName:nil hiddenArrow:NO];
+        _commentHeadView = [KRArrowIconRowView rowViewWithTitle:@"用户评价" subtitle:nil iconName:nil hiddenArrow:NO];
     }
     return _commentHeadView;
 }
@@ -428,6 +453,7 @@ typedef enum {
 - (UIButton *)allCommentBtn {
     if (!_allCommentBtn) {
         _allCommentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_allCommentBtn addTarget:self action:@selector(allCommentBtnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _allCommentBtn;
 }
@@ -445,25 +471,14 @@ typedef enum {
 
 - (KRArrowIconRowView *)storeHeadView {
     if (!_storeHeadView) {
-        _storeHeadView = [KRArrowIconRowView rowViewWithSize:CGSizeMake(SCREEN_WIDTH, 50) title:@"连锁店铺" subtitle:nil iconName:nil hiddenArrow:NO];
+        _storeHeadView = [KRArrowIconRowView rowViewWithTitle:@"连锁店铺" subtitle:nil iconName:nil hiddenArrow:NO];
     }
     return _storeHeadView;
-}
-
-- (UIButton *)storeBtn {
-    if (!_storeBtn) {
-        _storeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    }
-    return _storeBtn;
 }
 
 - (KRChainStoreCell *)storeView {
     if (!_storeView) {
         _storeView = [[KRChainStoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        WEAK_SELF
-        _storeView.storeHotlineBlock = ^{
-            [weakSelf storeHotlineButtonClick];
-        };
     }
     return _storeView;
 }

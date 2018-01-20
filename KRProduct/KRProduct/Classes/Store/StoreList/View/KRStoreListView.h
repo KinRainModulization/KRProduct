@@ -11,4 +11,7 @@
 @interface KRStoreListView : UITableView
 
 @property (nonatomic, strong) NSArray *stores;
+
+@property (nonatomic, copy) void (^storeDetailBlock)(void);
+
 @end

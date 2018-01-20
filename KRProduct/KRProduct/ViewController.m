@@ -12,6 +12,7 @@
 #import "KRStoreListController.h"
 #import "KRChainStoreController.h"
 #import "KRUserCommentController.h"
+#import "KRSecondaryCategoriesVC.h"
 
 @interface ViewController ()
 
@@ -39,6 +40,10 @@
     UIButton *commentBtn = [UIButton buttonWithTitle:@"跳转用户评价" fontSize:18 titleColor:[UIColor blueColor] target:self action:@selector(commentBtnClick)];
     commentBtn.frame = CGRectMake(0, 400, chainStoreBtn.width, chainStoreBtn.height);
     [self.view addSubview:commentBtn];
+    
+    UIButton *categoryBtn = [UIButton buttonWithTitle:@"跳转分类列表" fontSize:18 titleColor:[UIColor blueColor] target:self action:@selector(categoryBtnClick)];
+    categoryBtn.frame = CGRectMake(0, 500, chainStoreBtn.width, chainStoreBtn.height);
+    [self.view addSubview:categoryBtn];
 }
 
 - (void)productBtnClick {
@@ -59,5 +64,9 @@
 
 - (void)commentBtnClick {
     [self.navigationController pushViewController:[[KRUserCommentController alloc] init] animated:YES];
+}
+
+- (void)categoryBtnClick {
+    [self.navigationController pushViewController:[[KRSecondaryCategoriesVC alloc] init] animated:YES];
 }
 @end

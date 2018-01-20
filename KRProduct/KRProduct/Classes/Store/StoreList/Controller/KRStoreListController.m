@@ -8,6 +8,7 @@
 
 #import "KRStoreListController.h"
 #import "KRStoreListView.h"
+#import "KRStoreDetailController.h"
 
 @interface KRStoreListController ()
 
@@ -22,8 +23,16 @@
     
     self.title = @"所有店铺";
     [self.view addSubview:self.storeListView];
+    WEAK_SELF
+    _storeListView.storeDetailBlock = ^{
+        [weakSelf storeDetailClick];
+    };
     
     self.storeListView.stores = @[@"data",@"data",@"data",@"data"];
+}
+
+- (void)storeDetailClick {
+    [self.navigationController pushViewController:[[KRStoreDetailController alloc] init] animated:YES];
 }
 
 - (KRStoreListView *)storeListView {
